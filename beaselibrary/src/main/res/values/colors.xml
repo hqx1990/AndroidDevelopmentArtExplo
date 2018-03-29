@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="default_arc_progress_background">#ffffff</color>
+    <color name="default_arc_progress_arc_fg">#FF4081</color>
+    <color name="default_arc_progress_arc_bg">#22000000</color>
+
+
+    <color name="ff3F51B5">#3F51B5</color>
+    <color name="ff303F9F">#303F9F</color>
+    <color name="ffff4081">#FF4081</color>
+
+    <color name="fff">#fff</color>
+    <color name="ff4081">#ff4081</color>
+    <color name="ff333333">#333333</color>
+    <color name="ff666666">#666666</color>
+    <color name="ffe1e1e1">#e1e1e1</color>
+
+
+
+</resources>
