@@ -33,6 +33,11 @@ public class MainActivity extends BaseActivity {
 
     private void datas(){
         list = new ArrayList<String>();
+        list.add("弹框1");
+        list.add("弹框2");
+        list.add("弹框3");
+        list.add("弹框4");
+        list.add("弹框5");
         for(int i = 0;i<30;i++){
             list.add(String.valueOf(i));
         }
@@ -104,7 +109,13 @@ public class MainActivity extends BaseActivity {
                         },2000);
                         break;
                     case 4:
-
+                        showProgress(true);
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                showProgress(false);
+                            }
+                        },2000);
                         break;
                 }
             }
