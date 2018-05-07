@@ -1,14 +1,19 @@
 package com.bestvike.androiddevelopmentartexploration;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.bestvike.androiddevelopmentartexploration.IPC.SecondActivity;
+import com.bestvike.androiddevelopmentartexploration.IPC.ThirdActivity;
+import com.bestvike.androiddevelopmentartexploration.IPC.UserManager;
 import com.bestvike.androiddevelopmentartexploration.homePpage.HomePageAdapter;
 import com.example.beaselibrary.base.BaseActivity;
 import com.example.beaselibrary.base.BaseRecyclerAdapter;
@@ -29,6 +34,8 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
         datas();
         initView();
+        UserManager.sUserId = 2;
+        Log.e("0-----","userId:"+UserManager.sUserId);
     }
 
     private void datas(){
@@ -38,6 +45,8 @@ public class MainActivity extends BaseActivity {
         list.add("弹框3");
         list.add("弹框4");
         list.add("弹框5");
+        list.add("多线程1  :remote");
+        list.add("多线程2  com.ryg.chapter_2.remote");
         for(int i = 0;i<30;i++){
             list.add(String.valueOf(i));
         }
@@ -116,6 +125,15 @@ public class MainActivity extends BaseActivity {
                                 showProgress(false);
                             }
                         },2000);
+                        break;
+                    case 5:
+                        //多线程1  :remote
+                        startActivity(new Intent(MainActivity.this,SecondActivity.class));
+                        break;
+
+                    case 6:
+                        //多线程2  com.ryg.chapter_2.remote
+                        startActivity(new Intent(MainActivity.this,ThirdActivity.class));
                         break;
                 }
             }
