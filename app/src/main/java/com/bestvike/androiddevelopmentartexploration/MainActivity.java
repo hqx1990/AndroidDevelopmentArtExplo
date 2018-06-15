@@ -15,6 +15,7 @@ import com.bestvike.androiddevelopmentartexploration.IPC.SecondActivity;
 import com.bestvike.androiddevelopmentartexploration.IPC.ThirdActivity;
 import com.bestvike.androiddevelopmentartexploration.IPC.UserManager;
 import com.bestvike.androiddevelopmentartexploration.homePpage.HomePageAdapter;
+import com.bestvike.androiddevelopmentartexploration.listLeftDelete.leftDelete.LeftDeletaActivity;
 import com.example.beaselibrary.base.BaseActivity;
 import com.example.beaselibrary.base.BaseRecyclerAdapter;
 import com.example.beaselibrary.interfaces.DialogListener;
@@ -47,6 +48,7 @@ public class MainActivity extends BaseActivity {
         list.add("弹框5");
         list.add("多线程1  :remote");
         list.add("多线程2  com.ryg.chapter_2.remote");
+        list.add("RecyclerView仿QQ左滑出删除功能");
         for(int i = 0;i<30;i++){
             list.add(String.valueOf(i));
         }
@@ -134,6 +136,11 @@ public class MainActivity extends BaseActivity {
                     case 6:
                         //多线程2  com.ryg.chapter_2.remote
                         startActivity(new Intent(MainActivity.this,ThirdActivity.class));
+                        break;
+
+                    case 7:
+                        //RecyclerView仿QQ左滑出删除功能
+                        toActivity(LeftDeletaActivity.class);
                         break;
                 }
             }

@@ -9,8 +9,10 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.beaselibrary.R;
+import com.example.beaselibrary.base.BaseApplication;
 import com.example.beaselibrary.interfaces.DialogListener;
 import com.example.beaselibrary.view.LoadingProgress;
 
@@ -113,5 +115,15 @@ public class ShowDialog {
         {
             e.printStackTrace();
         }
+    }
+
+    public static Toast mToast;
+    public void toast(String msg){
+        if (mToast == null)
+        {
+            mToast = Toast.makeText(BaseApplication.CONTEXT, "", Toast.LENGTH_SHORT);
+        }
+        mToast.setText(msg);
+        mToast.show();
     }
 }

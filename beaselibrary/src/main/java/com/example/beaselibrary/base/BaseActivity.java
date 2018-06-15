@@ -2,8 +2,10 @@ package com.example.beaselibrary.base;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,7 +17,7 @@ import com.example.beaselibrary.util.ShowDialog;
  * Created by Administrator on 2018/3/29.
  */
 
-public abstract class BaseActivity extends Activity implements View.OnClickListener{
+public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener{
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -90,5 +92,24 @@ public abstract class BaseActivity extends Activity implements View.OnClickListe
      */
     public void showProgress(boolean flag,String str){
         ShowDialog.getInstance().showProgress(flag,str,this);
+    }
+
+    public void toActivity(Class<?> cls,Bundle bundle,int requestCode){
+        Intent intent = new Intent(this,cls);
+        if(null != bundle) {
+            intent.putExtras(bundle);
+        }
+        if(-1 != requestCode){
+            startActivityForResult(intent,requestCode);
+        }else{
+            startActivity(intent);
+        }
+
+    }
+    public void toActivity(Class<?> cls){
+        toActivity(cls,null,-1);
+    }
+    public void toActivity(Class<?> cls,Bundle bundle){
+        toActivity(cls,bundle,-1);
     }
 }

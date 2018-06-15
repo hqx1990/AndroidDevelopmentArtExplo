@@ -1,0 +1,4 @@
+
+
+listLeftDelete   包下主要功能是列表的各种滑动
+    leftDelete 中 LeftDeletaActivity  列表想左滑动实现删除列表的功能

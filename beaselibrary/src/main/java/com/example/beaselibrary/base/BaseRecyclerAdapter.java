@@ -7,6 +7,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.example.beaselibrary.util.CheckUtil;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -30,6 +33,8 @@ import java.util.List;
  * ----------------------------------------------------------------------------------------------------
  */
 public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements View.OnClickListener, View.OnLongClickListener {
+
+    private LayoutInflater mInflater;
 
     protected List<T> datas;
     private int layoutId;
@@ -220,6 +225,12 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<Recycl
                 }
             });
             gridLayoutManager.setSpanCount(gridLayoutManager.getSpanCount());
+        }
+    }
+
+    public void setText(TextView textView,String str){
+        if(null != textView && !CheckUtil.getInstance().isEmpty(str)){
+            textView.setText(str);
         }
     }
 }

@@ -3,12 +3,13 @@
     package="com.bestvike.androiddevelopmentartexploration">
 
     <application
+        android:name="com.bestvike.androiddevelopmentartexploration.AppApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme.NoActionBar">
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -27,6 +28,8 @@
         <activity android:name=".IPC.ThirdActivity"
             android:process="com.ryg.chapter_2.remotes"
             />
+        <!--RecyclerView仿QQ左滑出删除功能-->
+        <activity android:name="com.bestvike.androiddevelopmentartexploration.listLeftDelete.leftDelete.LeftDeletaActivity"/>
 
     </application>
 
