@@ -16,6 +16,7 @@ import com.bestvike.androiddevelopmentartexploration.IPC.ThirdActivity;
 import com.bestvike.androiddevelopmentartexploration.IPC.UserManager;
 import com.bestvike.androiddevelopmentartexploration.homePpage.HomePageAdapter;
 import com.bestvike.androiddevelopmentartexploration.listLeftDelete.leftDelete.LeftDeletaActivity;
+import com.bestvike.androiddevelopmentartexploration.rxImagePicker.RxImagePickerActivity;
 import com.bestvike.androiddevelopmentartexploration.xg.MyXGActivity;
 import com.example.beaselibrary.base.BaseActivity;
 import com.example.beaselibrary.base.BaseRecyclerAdapter;
@@ -51,6 +52,7 @@ public class MainActivity extends BaseActivity {
         list.add("多线程2  com.ryg.chapter_2.remote");
         list.add("RecyclerView仿QQ左滑出删除功能");
         list.add("信鸽推送");
+        list.add("图片库RxImagePicker应用");
         for(int i = 0;i<30;i++){
             list.add(String.valueOf(i));
         }
@@ -148,6 +150,10 @@ public class MainActivity extends BaseActivity {
                     case 8:
                         //信鸽推送
                         toActivity(MyXGActivity.class);
+                        break;
+                    case 9:
+                        //图片库RxImagePicker应用
+                        toActivity(RxImagePickerActivity.class);
                         break;
                 }
             }

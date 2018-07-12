@@ -54,7 +54,8 @@
         <!--RecyclerView仿QQ左滑出删除功能-->
         <activity android:name="com.bestvike.androiddevelopmentartexploration.listLeftDelete.leftDelete.LeftDeletaActivity"/>
 
-
+        <!--图片库RxImagePicker应用-->
+        <activity android:name="com.bestvike.androiddevelopmentartexploration.rxImagePicker.RxImagePickerActivity"/>
 
 
         <activity android:name="com.bestvike.androiddevelopmentartexploration.xg.MyXGActivity"/>
