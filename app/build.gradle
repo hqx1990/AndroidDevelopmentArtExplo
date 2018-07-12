@@ -16,6 +16,17 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    configurations.all {
+        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+            def requested = details.requested
+            if (requested.group == 'com.android.support') {
+                if (!requested.name.startsWith("multidex")) {
+                    details.useVersion '27.0.0'
+                }
+            }
+        }
+    }
 }
 
 dependencies {
@@ -28,8 +39,18 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     compile project(':beaselibrary')
     compile project(':recyclerviewSwipe')
+
     implementation files('libs/jg_filter_sdk_1.1.jar')
     implementation files('libs/mid-core-sdk-4.0.6.jar')
     implementation files('libs/wup-1.0.0.E-SNAPSHOT.jar')
     implementation files('libs/Xg_sdk_v3.2.4_20180504_1452.jar')
+
+    // 基础组件
+    implementation "com.github.qingmei2:rximagepicker:0.4.0"
+    // 自定义UI层基础组件
+    implementation "com.github.qingmei2:rximagepicker_support:0.4.0"
+    // 知乎图片选择器
+    implementation "com.github.qingmei2:rximagepicker_support_zhihu:0.4.0"
+    // 微信图片选择器
+    implementation "com.github.qingmei2:rximagepicker_support_wechat:0.4.0"
 }
