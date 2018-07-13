@@ -16,7 +16,7 @@ import com.bestvike.androiddevelopmentartexploration.IPC.ThirdActivity;
 import com.bestvike.androiddevelopmentartexploration.IPC.UserManager;
 import com.bestvike.androiddevelopmentartexploration.homePpage.HomePageAdapter;
 import com.bestvike.androiddevelopmentartexploration.listLeftDelete.leftDelete.LeftDeletaActivity;
-import com.bestvike.androiddevelopmentartexploration.paging.PagingActivity;
+import com.bestvike.androiddevelopmentartexploration.paging.pagingLibrary.PagingLibraryActivity;
 import com.bestvike.androiddevelopmentartexploration.paging.asyncListUtil.AsyncListActivity;
 import com.bestvike.androiddevelopmentartexploration.rxImagePicker.RxImagePickerActivity;
 import com.bestvike.androiddevelopmentartexploration.xg.MyXGActivity;
@@ -55,7 +55,7 @@ public class MainActivity extends BaseActivity {
         list.add("RecyclerView仿QQ左滑出删除功能");
         list.add("信鸽推送");
         list.add("图片库RxImagePicker应用");
-        list.add("Paging分页加载框架的使用");
+        list.add("PagingLibrary分页加载框架的使用");
         list.add("基于Android官方AsyncListUtil优化改进RecyclerView分页加载机制");
         for(int i = 0;i<30;i++){
             list.add(String.valueOf(i));
@@ -160,8 +160,8 @@ public class MainActivity extends BaseActivity {
                         toActivity(RxImagePickerActivity.class);
                         break;
                     case 10:
-                        //Paging分页加载框架的使用
-                        toActivity(PagingActivity.class);
+                        //PagingLibrary分页加载框架的使用
+                        toActivity(PagingLibraryActivity.class);
                         break;
                     case 11:
                         //基于Android官方AsyncListUtil优化改进RecyclerView分页加载机制
