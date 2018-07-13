@@ -20,7 +20,7 @@ public class AsyncListActivity extends BaseActivity {
 
     private String TAG = "调试";
     private RecyclerView mRecyclerView;
-    private AsyncListUtil mAsyncListUtil;
+    private AsyncListUtil <User> mAsyncListUtil;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -38,7 +38,7 @@ public class AsyncListActivity extends BaseActivity {
 
         MyDataCallback mDataCallback = new MyDataCallback();
         MyViewCallback mViewCallback = new MyViewCallback(mRecyclerView);
-        mAsyncListUtil = new AsyncListUtil(String.class, 20, mDataCallback, mViewCallback);
+        mAsyncListUtil = new AsyncListUtil(User.class, 20, mDataCallback, mViewCallback);
 
         mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override

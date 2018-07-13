@@ -31,12 +31,17 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>  {
     public void onBindViewHolder(MyAdapter.ViewHolder viewHolder, int i) {
         viewHolder.text1.setText(String.valueOf(i));
 
-        String s = String.valueOf(mAsyncListUtil.getItem(i));
-        if (TextUtils.equals(s, "null")) {
-            s = "加载中...";
-        }
+        User user = (User) mAsyncListUtil.getItem(i);
 
-        viewHolder.text2.setText(s);
+        if(null != user){
+            String name = user.getName();
+            String phone = user.getPhone();
+            viewHolder.text1.setText(name);
+            viewHolder.text2.setText(phone);
+        }else {
+            viewHolder.text1.setText("");
+            viewHolder.text2.setText("加载中...");
+        }
     }
 
     @Override

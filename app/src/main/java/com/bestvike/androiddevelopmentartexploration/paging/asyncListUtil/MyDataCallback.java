@@ -4,7 +4,10 @@ import android.os.SystemClock;
 import android.support.v7.util.AsyncListUtil;
 import android.util.Log;
 
-public class MyDataCallback extends AsyncListUtil.DataCallback<String>  {
+import java.util.ArrayList;
+import java.util.List;
+
+public class MyDataCallback extends AsyncListUtil.DataCallback<User>  {
     private String TAG = "调试";
     @Override
     public int refreshData() {
@@ -23,10 +26,19 @@ public class MyDataCallback extends AsyncListUtil.DataCallback<String>  {
      * @param itemCount
      */
     @Override
-    public void fillData(String[] data, int startPosition, int itemCount) {
+    public void fillData(User[] data, int startPosition, int itemCount) {
         Log.d(TAG, "fillData:" + startPosition + "," + itemCount);
-        for (int i = 0; i < itemCount; i++) {
-            data[i] = String.valueOf(System.currentTimeMillis());
+        List<User> list = new ArrayList<>();
+        for (int i = 0;i<20;i++){
+            User user = new User();
+            user.setName("名字："+i);
+            user.setPhone("电话："+133956677+i);
+            list.add(user);
+        }
+
+
+        for (int i = 0; i < list.size(); i++) {
+            data[i] = list.get(i);
 
             //模拟耗时任务，故意休眠一定时延。
             SystemClock.sleep(100);
