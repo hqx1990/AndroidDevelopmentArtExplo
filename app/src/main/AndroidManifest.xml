@@ -60,6 +60,10 @@
         <!--图片库RxImagePicker应用-->
         <activity android:name="com.bestvike.androiddevelopmentartexploration.rxImagePicker.RxImagePickerActivity"/>
 
+        <!--Paging分页加载框架的使用-->
+        <activity android:name="com.bestvike.androiddevelopmentartexploration.paging.PagingActivity"/>
+        <!--基于Android官方AsyncListUtil优化改进RecyclerView分页加载机制-->
+        <activity android:name="com.bestvike.androiddevelopmentartexploration.paging.asyncListUtil.AsyncListActivity"/>
 
         <activity android:name="com.bestvike.androiddevelopmentartexploration.xg.MyXGActivity"/>
 

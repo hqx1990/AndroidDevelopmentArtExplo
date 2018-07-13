@@ -53,4 +53,8 @@ dependencies {
     implementation "com.github.qingmei2:rximagepicker_support_zhihu:0.4.0"
     // 微信图片选择器
     implementation "com.github.qingmei2:rximagepicker_support_wechat:0.4.0"
+
+
+    //paging
+    implementation 'android.arch.paging:runtime:1.0.0-alpha3'
 }
