@@ -59,7 +59,7 @@ public class RxImagePickerActivity extends BaseActivity {
                         WechatImagePicker.KEY_WECHAT_PICKER_ACTIVITY,
                         WechatImagePickerActivity.class,
                         new WechatConfigrationBuilder(MimeType.ofImage(), false)
-                                .maxSelectable(9)	//最大可选图片数
+                                .maxSelectable(1)	//最大可选图片数
                                 .spanCount(4)		//每行展示四张图片
                                 .countable(false)	//关闭计数模式
                                 .theme(R.style.Wechat)	//微信主题
