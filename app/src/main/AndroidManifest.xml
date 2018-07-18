@@ -65,6 +65,9 @@
         <!--基于Android官方AsyncListUtil优化改进RecyclerView分页加载机制-->
         <activity android:name="com.bestvike.androiddevelopmentartexploration.paging.asyncListUtil.AsyncListActivity"/>
 
+        <!--LiveData感知生命周期，数据同步回复等-->
+        <activity android:name="com.bestvike.androiddevelopmentartexploration.liveData.LiveDataActivity"/>
+
         <activity android:name="com.bestvike.androiddevelopmentartexploration.xg.MyXGActivity"/>
 
         <!-- 【必须】 信鸽receiver广播接收 -->

@@ -16,6 +16,7 @@ import com.bestvike.androiddevelopmentartexploration.IPC.ThirdActivity;
 import com.bestvike.androiddevelopmentartexploration.IPC.UserManager;
 import com.bestvike.androiddevelopmentartexploration.homePpage.HomePageAdapter;
 import com.bestvike.androiddevelopmentartexploration.listLeftDelete.leftDelete.LeftDeletaActivity;
+import com.bestvike.androiddevelopmentartexploration.liveData.LiveDataActivity;
 import com.bestvike.androiddevelopmentartexploration.paging.pagingLibrary.PagingLibraryActivity;
 import com.bestvike.androiddevelopmentartexploration.paging.asyncListUtil.AsyncListActivity;
 import com.bestvike.androiddevelopmentartexploration.rxImagePicker.RxImagePickerActivity;
@@ -57,6 +58,7 @@ public class MainActivity extends BaseActivity {
         list.add("图片库RxImagePicker应用");
         list.add("PagingLibrary分页加载框架的使用");
         list.add("基于Android官方AsyncListUtil优化改进RecyclerView分页加载机制");
+        list.add("LiveData感知生命周期，数据同步回复等");
         for(int i = 0;i<30;i++){
             list.add(String.valueOf(i));
         }
@@ -166,6 +168,10 @@ public class MainActivity extends BaseActivity {
                     case 11:
                         //基于Android官方AsyncListUtil优化改进RecyclerView分页加载机制
                         toActivity(AsyncListActivity.class);
+                        break;
+                    case 12:
+                        //LiveData感知生命周期，数据同步回复等
+                        toActivity(LiveDataActivity.class);
                         break;
                 }
             }
