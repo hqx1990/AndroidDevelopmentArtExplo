@@ -5,6 +5,7 @@ import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.bestvike.androiddevelopmentartexploration.R;
 import com.example.beaselibrary.base.BaseActivity;
@@ -17,11 +18,14 @@ public class LiveDataActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.myxgactivity);
-        LocationLiveData.get(this).observe(this, new Observer<Location>() {
-            @Override
-            public void onChanged(@Nullable Location location) {
-                Log.e("liveData","测试"+location.toString());
-            }
-        });
+        LocationLiveData.get().observe(this,new MyObserver());
+    }
+
+    private class MyObserver implements  Observer<String>{
+        @Override
+        public void onChanged(@Nullable String s) {
+            Log.e("LiveData","测试："+s);
+            Toast.makeText(getApplicationContext(),String.valueOf(s),Toast.LENGTH_SHORT).show();
+        }
     }
 }

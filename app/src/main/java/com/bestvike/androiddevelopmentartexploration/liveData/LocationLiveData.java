@@ -1,46 +1,66 @@
 package com.bestvike.androiddevelopmentartexploration.liveData;
 
 import android.arch.lifecycle.LiveData;
-import android.content.Context;
-import android.location.Location;
-import android.location.LocationManager;
 import android.support.annotation.MainThread;
 import android.util.Log;
 
-public class LocationLiveData extends LiveData<Location> {
+public class LocationLiveData extends LiveData<String> {
 
     private static LocationLiveData sInstance;
-    private LocationManager locationManager;
+
+    private final String TAG = "LiveData";
+    private int cont = 0;
+    private boolean RUN = true;
+
+    private LongTimeWork mThread = new LongTimeWork();
 
     @MainThread
-    public static LocationLiveData get(Context context) {
+    public static LocationLiveData get() {
         if (sInstance == null) {
-            sInstance = new LocationLiveData(context.getApplicationContext());
+            sInstance = new LocationLiveData();
         }
         return sInstance;
     }
 
-//    private SimpleLocationListener listener = new SimpleLocationListener() {
-//        @Override
-//        public void onLocationChanged(Location location) {
-//            setValue(location);
-//        }
-//    };
 
-    private LocationLiveData(Context context) {
-        locationManager = (LocationManager) context.getSystemService(
-                Context.LOCATION_SERVICE);
+    private LocationLiveData() {
+        mThread.start();
     }
 
     @Override
     protected void onActive() {
-//        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, listener);
-        Log.e("liveData","测试：回到前台");
+        super.onActive();
+        Log.e(TAG,"测试：回到前台");
+        RUN = true;
+        mThread.interrupt();
     }
 
     @Override
     protected void onInactive() {
-        Log.e("liveData","测试：去后台");
-//        locationManager.removeUpdates(listener);
+        Log.e(TAG,"测试：去后台");
+        RUN = false;
+    }
+
+    private class LongTimeWork extends Thread{
+        @Override
+        public void run() {
+            while (true){
+                try {
+                    if(!RUN){
+                        Thread.sleep(Long.MAX_VALUE);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                cont++;
+                postValue(String.valueOf(cont));
+
+                try {
+                    Thread.sleep(3000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }
