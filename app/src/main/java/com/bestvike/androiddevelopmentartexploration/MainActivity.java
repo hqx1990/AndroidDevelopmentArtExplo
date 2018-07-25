@@ -24,6 +24,7 @@ import com.bestvike.androiddevelopmentartexploration.xg.MyXGActivity;
 import com.example.beaselibrary.base.BaseActivity;
 import com.example.beaselibrary.base.BaseRecyclerAdapter;
 import com.example.beaselibrary.interfaces.DialogListener;
+import com.zy.logcat.LogCatControl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,6 +60,7 @@ public class MainActivity extends BaseActivity {
         list.add("PagingLibrary分页加载框架的使用");
         list.add("基于Android官方AsyncListUtil优化改进RecyclerView分页加载机制");
         list.add("LiveData感知生命周期，数据同步回复等");
+        list.add("LogcatView 一款可以在手机中打开logcat控制台");
         for(int i = 0;i<30;i++){
             list.add(String.valueOf(i));
         }
@@ -172,6 +174,20 @@ public class MainActivity extends BaseActivity {
                     case 12:
                         //LiveData感知生命周期，数据同步回复等
                         toActivity(LiveDataActivity.class);
+                        break;
+                    case 13:
+                        //LogcatView 一款可以在手机中打开logcat控制台
+//                        toActivity(null);
+                        //显示dialog
+                        LogCatControl.getBuilder(MainActivity.this)
+                                .setTitle("自定义标题")
+                                .setSearchContent("自定义搜索内容")
+                                .setSearchTag("自定义Tag")
+                                .setShowGrade(0) //设置显示级别:0 所有，1 系统，2 警告,3 错误
+                                .show();
+
+                        //清除dialog
+//        LogCatControl.getBuilder(this).clear();
                         break;
                 }
             }

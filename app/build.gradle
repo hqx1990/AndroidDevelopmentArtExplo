@@ -27,6 +27,12 @@ android {
             }
         }
     }
+
+    allprojects {
+        repositories {
+            maven { url 'https://jitpack.io' }
+        }
+    }
 }
 
 dependencies {
@@ -57,4 +63,7 @@ dependencies {
 
     //paging library
     implementation 'android.arch.paging:runtime:1.0.0-alpha3'
+
+    //LogcatView 一款可以在手机中打开logcat控制台  https://github.com/SHPDZY/LogCatDialog#logcatview
+    compile 'com.github.SHPDZY:LogCatDialog:1.0.2'
 }
