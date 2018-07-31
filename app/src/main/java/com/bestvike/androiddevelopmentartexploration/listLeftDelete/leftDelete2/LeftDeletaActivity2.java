@@ -24,7 +24,6 @@ public class LeftDeletaActivity2 extends BaseActivity implements LeftDeletaAdapt
     private List<String> list;
     private RecyclerView recyclerView;
     private LeftDeletaAdapter2 adapter;
-    private LeftSlideView leftSlideView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -45,8 +44,6 @@ public class LeftDeletaActivity2 extends BaseActivity implements LeftDeletaAdapt
     }
 
     private void findView(){
-        leftSlideView = findViewById(R.id.leftSlideView);
-        leftSlideView.setFlag("1");
         recyclerView = findViewById(R.id.recyclerView);
         adapter = new LeftDeletaAdapter2(this,list,R.layout.leftdeleteitem2);
         adapter.setIonSlidingViewClickListener(this);

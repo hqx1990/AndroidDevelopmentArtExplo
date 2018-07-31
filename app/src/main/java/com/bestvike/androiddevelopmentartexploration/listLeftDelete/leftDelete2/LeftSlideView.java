@@ -17,7 +17,6 @@ public class LeftSlideView extends HorizontalScrollView {
     private boolean once = false;//在onMeasure中只执行一次的判断
     private boolean isOpen = false;//记录按钮菜单是否打开，默认关闭false
     private IonSlidingButtonListener mIonSlidingButtonListener;//自定义的接口，用于传达滑动事件等
-    private String flag;//表示是否可以滑动
 
     /**
      * 1.构造方法
@@ -63,9 +62,6 @@ public class LeftSlideView extends HorizontalScrollView {
     //4.滑动监听，按滑动的距离大小控制菜单开关
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
-        if("1".equals(flag)){
-
-        }
 
         int action = ev.getAction();
         switch (action) {
@@ -153,9 +149,4 @@ public class LeftSlideView extends HorizontalScrollView {
         void onMenuIsOpen(View view);//判断菜单是否打开
         void onDownOrMove(LeftSlideView leftSlideView);//滑动或者点击了Item监听
     }
-
-    public void setFlag(String flag){
-        this.flag = flag;
-    }
-
 }
