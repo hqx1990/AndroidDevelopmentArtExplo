@@ -16,6 +16,7 @@ import com.bestvike.androiddevelopmentartexploration.IPC.ThirdActivity;
 import com.bestvike.androiddevelopmentartexploration.IPC.UserManager;
 import com.bestvike.androiddevelopmentartexploration.homePpage.HomePageAdapter;
 import com.bestvike.androiddevelopmentartexploration.listLeftDelete.leftDelete.LeftDeletaActivity;
+import com.bestvike.androiddevelopmentartexploration.listLeftDelete.leftDelete2.LeftDeletaActivity2;
 import com.bestvike.androiddevelopmentartexploration.liveData.LiveDataActivity;
 import com.bestvike.androiddevelopmentartexploration.paging.pagingLibrary.PagingLibraryActivity;
 import com.bestvike.androiddevelopmentartexploration.paging.asyncListUtil.AsyncListActivity;
@@ -61,6 +62,7 @@ public class MainActivity extends BaseActivity {
         list.add("基于Android官方AsyncListUtil优化改进RecyclerView分页加载机制");
         list.add("LiveData感知生命周期，数据同步回复等");
         list.add("LogcatView 一款可以在手机中打开logcat控制台");
+        list.add("RecyclerView仿QQ左滑出删除功能2");
         for(int i = 0;i<30;i++){
             list.add(String.valueOf(i));
         }
@@ -189,6 +191,11 @@ public class MainActivity extends BaseActivity {
                         //清除dialog
 //        LogCatControl.getBuilder(this).clear();
                         break;
+
+                        case 14:
+                            //RecyclerView仿QQ左滑出删除功能
+                            toActivity(LeftDeletaActivity2.class);
+                            break;
                 }
             }
         });
