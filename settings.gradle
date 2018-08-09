@@ -1,1 +1,1 @@
-include ':app', ':beaselibrary', ':recyclerviewSwipe'
+include ':app', ':beaselibrary', ':recyclerviewSwipe',':jsbridge'

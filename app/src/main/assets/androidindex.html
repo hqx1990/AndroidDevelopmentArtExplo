@@ -1,0 +1,340 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JSBridge</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1, user-scalable=no"/>
+    <script src="file:///android_asset/JSForAndroidBridge.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+    </script>
+    <script>
+        function callAppResult(res){
+            alert(1);
+        }
+    </script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+<div>
+    <h3>JSBridge 测试</h3>
+</div>
+
+<ul class="list">
+    <li>
+        <div>
+            <button onclick="bridge.call('bk_bridge','synchMethod',{'method':'jumpToMainPage','mainPageType':'homePage'},function(res){alert(JSON.stringify(res))})">
+                跳转到首页
+            </button>
+        </div>
+    </li>
+    <br/>
+</ul>
+
+<ul class="list">
+    <li>
+        <div>
+            <button onclick="bridge.call('bk_bridge','synchMethod',{'method':'updatePhoto'},function(res){alert(1)})">
+                拍照上传
+            </button>
+        </div>
+    </li>
+    <br/>
+</ul>
+
+<ul class="list">
+    <li>
+        <div>
+            <button onclick="bridge.call('bk_bridge','synchMethod',{'method':'jumpToMainPage','mainPageType':'merchandisePage'},function(res){alert(JSON.stringify(res))})">
+                跳转到精选商品
+            </button>
+        </div>
+    </li>
+    <br/>
+</ul>
+
+<ul class="list">
+    <li>
+        <div>
+            <button onclick="bridge.call('bk_bridge','synchMethod',{'method':'jumpToMainPage','mainPageType':'specialLoanPage'},function(res){alert(JSON.stringify(res))})">
+                跳转到大额专享
+            </button>
+        </div>
+    </li>
+    <br/>
+</ul>
+
+<ul class="list">
+    <li>
+        <div>
+            <button onclick="bridge.call('bk_bridge','synchMethod',{'method':'jumpToMainPage','mainPageType':'personPage'},function(res){alert(JSON.stringify(res))})">
+                跳转到个人中心
+            </button>
+        </div>
+    </li>
+    <br/>
+</ul>
+
+<ul class="list">
+    <li>
+        <div>
+            <button onclick="bridge.call('bk_bridge','synchMethod',{'method':'jumpToTypePage','isRefreshUrl':'生鲜'},function(res){alert(JSON.stringify(res))})">
+                跳转到精选商品子页面
+            </button>
+        </div>
+    </li>
+    <br/>
+</ul>
+
+<ul class="list">
+    <li>
+        <div>
+            <button onclick="bridge.call('bk_bridge','synchMethod',{'method':'updateUserInfo','isRefreshUrl':'Y'},function(res){alert(JSON.stringify(res))})">
+                未登录，需要用户登录，登录后，拼接userId刷新当前URL
+            </button>
+        </div>
+    </li>
+    <br/>
+</ul>
+
+<ul class="list">
+    <li>
+        <div>
+            <button onclick="bridge.call('bk_bridge','synchMethod',{'method':'updateRealNameInfo','isRefreshUrl':'Y'},function(res){alert(JSON.stringify(res))})">
+                未实名，需要用户实名，实名后，拼接userId、custNo刷新当前URL
+            </button>
+        </div>
+    </li>
+    <br/>
+</ul>
+
+<ul class="list">
+    <li>
+        <div>
+            <button onclick="bridge.call('bk_bridge','synchMethod',{'method':'applyLimitBus'},function(res){alert(JSON.stringify(res))})">
+                额度激活
+            </button>
+        </div>
+    </li>
+    <br/>
+</ul>
+
+<ul class="list">
+    <li>
+        <div>
+            <button onclick="bridge.call('bk_bridge','synchMethod',{'method':'cashBus'},function(res){alert(JSON.stringify(res))})">
+                现金贷
+            </button>
+        </div>
+    </li>
+    <br/>
+</ul>
+
+<ul class="list">
+    <li>
+        <div>
+            <button onclick="bridge.call('bk_bridge','synchMethod',{'method':'applyLimitBus'},function(res){alert(JSON.stringify(res))})">
+                额度激活业务按钮
+            </button>
+        </div>
+    </li>
+    <br/>
+</ul>
+
+<ul class="list">
+    <li>
+        <div>
+            <button onclick="bridge.call('bk_bridge','synchMethod',{'method':'improveLimitBus'},function(res){alert(JSON.stringify(res))})">
+                提额业务按钮
+            </button>
+        </div>
+    </li>
+    <br/>
+</ul>
+<ul class="list">
+    <li>
+        <div>
+            <button onclick="bridge.call('bk_bridge','synchMethod',{'method':'cashBus'},function(res){alert(JSON.stringify(res))})">
+                现金贷业务按钮
+            </button>
+        </div>
+    </li>
+    <br/>
+</ul>
+<ul class="list">
+    <li>
+        <div>
+            <button onclick="bridge.call('bk_bridge','synchMethod',{'method':'goodsBusCode','goodsCode':'123','commercialId':'456'},function(res){alert(JSON.stringify(res))})">
+                商品贷款业务按钮，goodsCode、commercialId可配置
+            </button>
+        </div>
+    </li>
+    <br/>
+</ul>
+<ul class="list">
+    <li>
+        <div>
+            <button onclick="bridge.call('bk_bridge','synchMethod',{'method':'activeCamera'},function(res){alert(JSON.stringify(res))})">
+                调用摄像头--大额和扫码专用按钮
+            </button>
+        </div>
+    </li>
+    <br/>
+</ul>
+<ul class="list">
+    <li>
+        <div>
+            <button onclick="bridge.call('bk_bridge','synchMethod',{'method':'closeNaviPage'},function(res){alert(JSON.stringify(res))})">
+                关闭网页
+            </button>
+        </div>
+    </li>
+    <br/>
+</ul>
+<ul class="list">
+    <li>
+        <div>
+            <button onclick="bridge.call('bk_bridge','synchMethod',{'method':'MyCouponViewControl'},function(res){alert(JSON.stringify(res))})">
+                打开查看我的优惠券按钮
+            </button>
+        </div>
+    </li>
+    <br/>
+</ul>
+<ul class="list">
+    <li>
+        <div>
+            <button onclick="bridge.call('bk_bridge','synchMethod',{'method':'activityBus','adId':''},function(res){alert(JSON.stringify(res))})">
+                活动业务按钮,adId需配置
+            </button>
+        </div>
+    </li>
+    <br/>
+</ul>
+<ul class="list">
+    <li>
+        <div>
+            <button onclick="bridge.call('bk_bridge','synchMethod',{'method':'getShareContent','content':'123'},function(res){alert(JSON.stringify(res))})">
+                传分享内容给app，content可配置
+            </button>
+        </div>
+    </li>
+    <br/>
+</ul>
+<ul class="list">
+    <li>
+        <div>
+            <button onclick="bridge.call('bk_bridge','synchMethod',{'method':'updateUserInfo','isRefreshUrl':'','jumpUrl':''},function(res){alert(JSON.stringify(res))})">
+                上传用户信息,isRefreshUrl="",jumpUrl=""，isRefreshUrl和jumpUrl可配置
+            </button>
+        </div>
+    </li>
+    <br/>
+</ul>
+<ul class="list">
+    <li>
+        <div>
+            <button onclick="bridge.call('bk_bridge','synchMethod',{'method':'updateUserInfo','isRefreshUrl':'Y','jumpUrl':'http://www.ifeng.com'},function(res){alert(JSON.stringify(res))})">
+                上传用户信息,isRefreshUrl=Y,jumpUrl="http://www.ifeng.com"，isRefreshUrl和jumpUrl可配置
+            </button>
+        </div>
+    </li>
+    <br/>
+</ul>
+<ul class="list">
+    <li>
+        <div>
+            <button onclick="bridge.call('bk_bridge','synchMethod',{'method':'updateUserInfo','isRefreshUrl':'Y','jumpUrl':''},function(res){alert(JSON.stringify(res))})">
+                上传用户信息,isRefreshUrl=Y,jumpUrl=""，isRefreshUrl和jumpUrl可配置
+            </button>
+        </div>
+    </li>
+    <br/>
+</ul>
+<ul class="list">
+    <li>
+        <div>
+            <button onclick="bridge.call('bk_bridge','synchMethod',{'method':'updateUserInfo','isRefreshUrl':'N','jumpUrl':'http://www.ifeng.com'},function(res){alert(JSON.stringify(res))})">
+                上传用户信息,isRefreshUrl=N,jumpUrl="http://www.ifeng.com"，isRefreshUrl和jumpUrl可配置
+            </button>
+        </div>
+    </li>
+    <br/>
+</ul>
+<ul class="list">
+    <li>
+        <div>
+            <button onclick="bridge.call('bk_bridge','synchMethod',{'method':'updateUserInfo','isRefreshUrl':'N','jumpUrl':''},function(res){alert(JSON.stringify(res))})">
+                上传用户信息,isRefreshUrl=N,jumpUrl=""，isRefreshUrl和jumpUrl可配置
+            </button>
+        </div>
+    </li>
+    <br/>
+</ul>
+<ul class="list">
+    <li>
+        <div>
+            <button onclick="bridge.call('bk_bridge','synchMethod',{'method':'updateRealNameInfo','isRefreshUrl':'','jumpUrl':''},function(res){alert(JSON.stringify(res))})">
+                上传实名信息，isRefreshUrl=""和jumpUrl=""可配置
+            </button>
+        </div>
+    </li>
+    <br/>
+</ul>
+<ul class="list">
+    <li>
+        <div>
+            <button onclick="bridge.call('bk_bridge','synchMethod',{'method':'updateRealNameInfo','isRefreshUrl':'Y','jumpUrl':'http://www.ifeng.com'},function(res){alert(JSON.stringify(res))})">
+                上传实名信息，isRefreshUrl="Y"和jumpUrl="http://www.ifeng.com"可配置
+            </button>
+        </div>
+    </li>
+    <br/>
+</ul>
+<ul class="list">
+    <li>
+        <div>
+            <button onclick="bridge.call('bk_bridge','synchMethod',{'method':'updateRealNameInfo','isRefreshUrl':'Y','jumpUrl':''},function(res){alert(JSON.stringify(res))})">
+                上传实名信息，isRefreshUrl="Y"和jumpUrl=""可配置
+            </button>
+        </div>
+    </li>
+    <br/>
+</ul>
+<ul class="list">
+    <li>
+        <div>
+            <button onclick="bridge.call('bk_bridge','synchMethod',{'method':'updateRealNameInfo','isRefreshUrl':'N','jumpUrl':'http://www.ifeng.com'},function(res){alert(JSON.stringify(res))})">
+                上传实名信息，isRefreshUrl="N"和jumpUrl="http://www.ifeng.com"可配置
+            </button>
+        </div>
+    </li>
+    <br/>
+</ul>
+<ul class="list">
+    <li>
+        <div>
+            <button onclick="bridge.call('bk_bridge','synchMethod',{'method':'updateRealNameInfo','isRefreshUrl':'N','jumpUrl':''},function(res){alert(JSON.stringify(res))})">
+                上传实名信息，isRefreshUrl="N"和jumpUrl=""可配置
+            </button>
+        </div>
+    </li>
+    <br/>
+</ul>
+
+<script type="text/javascript">
+    function myfun()
+    {
+    bridge.call('bk_bridge','synchMethod',{'method':'getShareContent','content':'test'},function(res){alert(JSON.stringify(res))});
+    }
+    /*用window.onload调用myfun()*/
+    /*页面加载完后自动执行一个方法的js代码*/
+    window.onload=myfun;//不要括号
+</script>
+
+</body>
+</html>

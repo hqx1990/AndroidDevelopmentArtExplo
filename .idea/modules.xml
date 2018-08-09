@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/DevelopmentArtExplo.iml" filepath="$PROJECT_DIR$/DevelopmentArtExplo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/beaselibrary/beaselibrary.iml" filepath="$PROJECT_DIR$/beaselibrary/beaselibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jsbridge/jsbridge.iml" filepath="$PROJECT_DIR$/jsbridge/jsbridge.iml" />
       <module fileurl="file://$PROJECT_DIR$/recyclerviewSwipe/recyclerviewSwipe.iml" filepath="$PROJECT_DIR$/recyclerviewSwipe/recyclerviewSwipe.iml" />
     </modules>
   </component>

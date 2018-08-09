@@ -15,6 +15,7 @@ import com.bestvike.androiddevelopmentartexploration.IPC.SecondActivity;
 import com.bestvike.androiddevelopmentartexploration.IPC.ThirdActivity;
 import com.bestvike.androiddevelopmentartexploration.IPC.UserManager;
 import com.bestvike.androiddevelopmentartexploration.homePpage.HomePageAdapter;
+import com.bestvike.androiddevelopmentartexploration.jsWebView.JsWebViewActivity;
 import com.bestvike.androiddevelopmentartexploration.listLeftDelete.leftDelete.LeftDeletaActivity;
 import com.bestvike.androiddevelopmentartexploration.listLeftDelete.leftDelete2.LeftDeletaActivity2;
 import com.bestvike.androiddevelopmentartexploration.liveData.LiveDataActivity;
@@ -63,6 +64,7 @@ public class MainActivity extends BaseActivity {
         list.add("LiveData感知生命周期，数据同步回复等");
         list.add("LogcatView 一款可以在手机中打开logcat控制台");
         list.add("RecyclerView仿QQ左滑出删除功能2");
+        list.add("jsWebView交互");
         for(int i = 0;i<30;i++){
             list.add(String.valueOf(i));
         }
@@ -196,6 +198,11 @@ public class MainActivity extends BaseActivity {
                             //RecyclerView仿QQ左滑出删除功能
                             toActivity(LeftDeletaActivity2.class);
                             break;
+
+                    case 15:
+                        //jsWebView交互
+                        toActivity(JsWebViewActivity.class);
+                        break;
                 }
             }
         });
