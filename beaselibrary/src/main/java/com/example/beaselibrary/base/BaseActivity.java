@@ -1,6 +1,5 @@
 package com.example.beaselibrary.base;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +11,8 @@ import android.widget.Toast;
 
 import com.example.beaselibrary.interfaces.DialogListener;
 import com.example.beaselibrary.util.ShowDialog;
+import com.example.beaselibrary.util.taskbar.FitStateUI;
+import com.example.beaselibrary.util.taskbar.OSUtils;
 
 /**
  * Created by Administrator on 2018/3/29.
@@ -22,7 +23,15 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        if (OSUtils.getRomType() == OSUtils.ROM_TYPE.FLYME)
+            FitStateUI.setMeizuStatusBarDarkIcon(this, true);
+        if (OSUtils.getRomType() == OSUtils.ROM_TYPE.EMUI)
+            FitStateUI.setImmersionStateMode(this);
+        if (OSUtils.getRomType() == OSUtils.ROM_TYPE.MIUI)
+            FitStateUI.setStatusBarFontIconDark(true, this);
+        if (OSUtils.getRomType() == OSUtils.ROM_TYPE.OTHER)
+            FitStateUI.setImmersionStateMode(this);
+        FitStateUI.initStatusBar(this);
     }
 
     @Override
