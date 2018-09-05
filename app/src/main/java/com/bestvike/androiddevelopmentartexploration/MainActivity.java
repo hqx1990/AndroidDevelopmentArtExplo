@@ -58,7 +58,7 @@ public class MainActivity extends BaseActivity {
         list.add("多线程2  com.ryg.chapter_2.remote");
         list.add("RecyclerView仿QQ左滑出删除功能");
         list.add("信鸽推送");
-        list.add("图片库RxImagePicker应用");
+        list.add("图片库RxImagePicker应用,识别图片中的二维码");
         list.add("PagingLibrary分页加载框架的使用");
         list.add("基于Android官方AsyncListUtil优化改进RecyclerView分页加载机制");
         list.add("LiveData感知生命周期，数据同步回复等");
@@ -164,7 +164,7 @@ public class MainActivity extends BaseActivity {
                         toActivity(MyXGActivity.class);
                         break;
                     case 9:
-                        //图片库RxImagePicker应用
+                        //图片库RxImagePicker应用，识别图片中的二维码
                         toActivity(RxImagePickerActivity.class);
                         break;
                     case 10:
@@ -202,6 +202,10 @@ public class MainActivity extends BaseActivity {
                     case 15:
                         //jsWebView交互
                         toActivity(JsWebViewActivity.class);
+                        break;
+                    case 16:
+
+
                         break;
                 }
             }
