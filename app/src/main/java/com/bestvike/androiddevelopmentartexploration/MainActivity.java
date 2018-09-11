@@ -23,6 +23,8 @@ import com.bestvike.androiddevelopmentartexploration.paging.pagingLibrary.Paging
 import com.bestvike.androiddevelopmentartexploration.paging.asyncListUtil.AsyncListActivity;
 import com.bestvike.androiddevelopmentartexploration.rxImagePicker.RxImagePickerActivity;
 import com.bestvike.androiddevelopmentartexploration.xg.MyXGActivity;
+import com.bestvike.androiddevelopmentartexploration.zxing.activity.SweepTheVardActivity;
+import com.bestvike.androiddevelopmentartexploration.zxing.activity.ZXingActivity;
 import com.example.beaselibrary.base.BaseActivity;
 import com.example.beaselibrary.base.BaseRecyclerAdapter;
 import com.example.beaselibrary.interfaces.DialogListener;
@@ -65,6 +67,7 @@ public class MainActivity extends BaseActivity {
         list.add("LogcatView 一款可以在手机中打开logcat控制台");
         list.add("RecyclerView仿QQ左滑出删除功能2");
         list.add("jsWebView交互");
+        list.add("扫描二维码，识别相册中的二维码");
         for(int i = 0;i<30;i++){
             list.add(String.valueOf(i));
         }
@@ -204,8 +207,8 @@ public class MainActivity extends BaseActivity {
                         toActivity(JsWebViewActivity.class);
                         break;
                     case 16:
-
-
+                        //扫描二维码，识别相册中的二维码
+                        toActivity(SweepTheVardActivity.class);
                         break;
                 }
             }

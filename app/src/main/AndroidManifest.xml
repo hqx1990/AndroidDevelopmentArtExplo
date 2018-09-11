@@ -9,7 +9,7 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.VIBRATE" /><!-- 震动权限 -->
     <!-- 【常用】 信鸽SDK所需权限 -->
     <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
@@ -23,9 +23,9 @@
     <uses-permission android:name="android.permission.READ_LOGS" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BATTERY_STATS" />
-
-
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" /> <!-- 摄像头权限 -->
+    <uses-feature android:name="android.hardware.camera.autofocus" /> <!-- 自动聚焦权限 -->
 
 
     <application
@@ -71,6 +71,8 @@
 
         <!--LiveData感知生命周期，数据同步回复等-->
         <activity android:name="com.bestvike.androiddevelopmentartexploration.liveData.LiveDataActivity"/>
+        <!--扫描二维码，识别相册中的二维码-->
+        <activity android:name="com.bestvike.androiddevelopmentartexploration.zxing.activity.SweepTheVardActivity"/>
 
         <activity android:name="com.bestvike.androiddevelopmentartexploration.xg.MyXGActivity"/>
 
