@@ -23,6 +23,7 @@ import android.graphics.Rect;
 import android.hardware.Camera;
 import android.os.Build;
 import android.os.Handler;
+import android.util.DisplayMetrics;
 import android.view.SurfaceHolder;
 
 import java.io.IOException;
@@ -216,6 +217,7 @@ public final class CameraManager {
      * far enough away to ensure the image will be in focus.
      *
      * @return The rectangle to draw on screen in window coordinates.
+     * 在窗口坐标中的屏幕上绘制的矩形。
      */
     public Rect getFramingRect() {
         Point screenResolution = configManager.getScreenResolution();
@@ -272,24 +274,43 @@ public final class CameraManager {
     /**
      * Like {@link #getFramingRect} but coordinates are in terms of the preview frame,
      * not UI / screen.
+     * 扫描采集区。也就是你的扫描区
      */
     public Rect getFramingRectInPreview() {
-        if (framingRectInPreview == null) {
-            Rect rect = new Rect(getFramingRect());
-            Point cameraResolution = configManager.getCameraResolution();
+
+        if(framingRectInPreview == null)
+        {
             Point screenResolution = configManager.getScreenResolution();
-            //modify here
-//      rect.left = rect.left * cameraResolution.x / screenResolution.x;
-//      rect.right = rect.right * cameraResolution.x / screenResolution.x;
-//      rect.top = rect.top * cameraResolution.y / screenResolution.y;
-//      rect.bottom = rect.bottom * cameraResolution.y / screenResolution.y;
-            rect.left = rect.left * cameraResolution.y / screenResolution.x;
-            rect.right = rect.right * cameraResolution.y / screenResolution.x;
-            rect.top = rect.top * cameraResolution.x / screenResolution.y;
-            rect.bottom = rect.bottom * cameraResolution.x / screenResolution.y;
-            framingRectInPreview = rect;
+            DisplayMetrics metrics = context.getResources().getDisplayMetrics();
+
+            // 控制宽高
+            int width = (int) (metrics.widthPixels * 1);
+            int height = (int) (metrics.heightPixels * 1);
+
+            // 控制位置
+            int leftOffset = (screenResolution.x - width) / 2;
+            int topOffset = (screenResolution.y - height) / 2;
+            framingRectInPreview = new Rect(leftOffset, topOffset, leftOffset + width, topOffset + height);
         }
         return framingRectInPreview;
+
+
+//        if (framingRectInPreview == null) {
+//            Rect rect = new Rect(getFramingRect());
+//            Point cameraResolution = configManager.getCameraResolution();
+//            Point screenResolution = configManager.getScreenResolution();
+//            //modify here
+////      rect.left = rect.left * cameraResolution.x / screenResolution.x;
+////      rect.right = rect.right * cameraResolution.x / screenResolution.x;
+////      rect.top = rect.top * cameraResolution.y / screenResolution.y;
+////      rect.bottom = rect.bottom * cameraResolution.y / screenResolution.y;
+//            rect.left = rect.left * cameraResolution.y / screenResolution.x;
+//            rect.right = rect.right * cameraResolution.y / screenResolution.x;
+//            rect.top = rect.top * cameraResolution.x / screenResolution.y;
+//            rect.bottom = rect.bottom * cameraResolution.x / screenResolution.y;
+//            framingRectInPreview = rect;
+//        }
+//        return framingRectInPreview;
     }
 
     /**
