@@ -1,5 +1,7 @@
 package com.bestvike.androiddevelopmentartexploration.zxing.activity;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -18,6 +20,7 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.bestvike.androiddevelopmentartexploration.R;
 import com.bestvike.androiddevelopmentartexploration.rxImagePicker.SystemImagePicker;
@@ -25,6 +28,8 @@ import com.bestvike.androiddevelopmentartexploration.zxing.camera.CameraManager;
 import com.bestvike.androiddevelopmentartexploration.zxing.decoding.CaptureActivityHandler;
 import com.bestvike.androiddevelopmentartexploration.zxing.decoding.InactivityTimer;
 import com.bestvike.androiddevelopmentartexploration.zxing.decoding.RGBLuminanceSource;
+import com.bestvike.androiddevelopmentartexploration.zxing.util.Constant;
+import com.bestvike.androiddevelopmentartexploration.zxing.util.UriUtil;
 import com.bestvike.androiddevelopmentartexploration.zxing.view.ViewfinderView;
 import com.example.beaselibrary.base.BaseActivity;
 import com.google.zxing.BarcodeFormat;
@@ -50,7 +55,9 @@ import io.reactivex.functions.Consumer;
 public class ZXingActivity extends BaseActivity  implements SurfaceHolder.Callback {
 
 
-    private SystemImagePicker imagePicker;//开启相册，基础控件
+//    private SystemImagePicker imagePicker;//开启相册，基础控件
+
+    private static final int REQUEST_CODE_SCAN_GALLERY = 100;
 
     private ViewfinderView viewfinderView;//扫描控件
     private ImageButton btnFlash;//开启闪光灯
@@ -71,7 +78,7 @@ public class ZXingActivity extends BaseActivity  implements SurfaceHolder.Callba
         setContentView(R.layout.zxing_activity);
         CameraManager.init(getApplication());
         findview();
-        getData();
+//        getData();
 
         hasSurface = false;
         inactivityTimer = new InactivityTimer(this);
@@ -86,30 +93,34 @@ public class ZXingActivity extends BaseActivity  implements SurfaceHolder.Callba
 
     }
 
-    private void getData(){
-        // 基础组件配置
-        imagePicker = new RxImagePicker.Builder()
-                .with(this)
-                .build()
-                .create(SystemImagePicker.class);
-    }
+//    private void getData(){
+//        // 基础组件配置
+//        imagePicker = new RxImagePicker.Builder()
+//                .with(this)
+//                .build()
+//                .create(SystemImagePicker.class);
+//    }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btn_album:
                 //点击相册，打开系统相册选取图片
-                imagePicker.openGallery()
-                        .subscribe(new Consumer<Result>() {
-                            @Override
-                            public void accept(Result result) throws Exception {
-                                // 做您想做的，比如将选取的图片展示在ImageView中
-//                                Glide.with(ZXingActivity.this)
-//                                        .load(result.getUri())
-//                                        .into(imageView);
-                                identifyAlbumQrCode(result.getUri());
-                            }
-                        });
+//                imagePicker.openGallery()
+//                        .subscribe(new Consumer<Result>() {
+//                            @Override
+//                            public void accept(Result result) throws Exception {
+//                                // 做您想做的，比如将选取的图片展示在ImageView中
+////                                Glide.with(ZXingActivity.this)
+////                                        .load(result.getUri())
+////                                        .into(imageView);
+//                                identifyAlbumQrCode(result.getUri());
+//                            }
+//                        });
+                //打开手机中的相册
+                Intent innerIntent = new Intent(Intent.ACTION_GET_CONTENT); //"android.intent.action.GET_CONTENT"
+                innerIntent.setType("image/*");
+                startActivityForResult(innerIntent, REQUEST_CODE_SCAN_GALLERY);
                 break;
 
             case R.id.btn_flash:
@@ -138,39 +149,77 @@ public class ZXingActivity extends BaseActivity  implements SurfaceHolder.Callba
 
     //--------------------------------------以下为zxing处理相册中的二维码----------------------------------------------------------
 
-    private void identifyAlbumQrCode(final Uri uriPath){
+    @Override
+    protected void onActivityResult(final int requestCode, int resultCode, Intent data) {
+        if (resultCode==RESULT_OK) {
+            switch (requestCode) {
+                case REQUEST_CODE_SCAN_GALLERY:
+                    handleAlbumPic(data);
+                    break;
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
 
-        final String strPath = getRealPathFromUri(uriPath);
+    /**
+     * 处理选择的图片
+     * @param data
+     */
+    private void handleAlbumPic(Intent data) {
+        //获取选中图片的路径
+        showProgress(true,"正在扫描...");
+        final String photo_path = UriUtil.getRealPathFromUri(this, data.getData());
+
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                com.google.zxing.Result result = scanningImage(strPath);
-                if(null != result){
-//                    showToast("识别成功："+result.getText());
+                showProgress(false);
+                com.google.zxing.Result result = scanningImage(photo_path);
+                if (result != null) {
                     successful(result.getText());
-                }else{
-                    showToast("识别失败,图片中没有二维码");
+                } else {
+                    showToast( "识别失败");
                 }
             }
         });
-
     }
 
-    public String getRealPathFromUri(Uri uri) {
-        String result;
-        Cursor cursor = getContentResolver().query(uri,
-                new String[]{MediaStore.Images.ImageColumns.DATA},
-                null, null, null);
-        if (cursor == null) result = uri.getPath();
-        else {
-            cursor.moveToFirst();
-            int index = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
-            result = cursor.getString(index);
-            cursor.close();
-        }
-        return result;
 
-    }
+
+
+//    private void identifyAlbumQrCode(final Uri uriPath){
+//
+//        final String strPath = getRealPathFromUri(uriPath);
+//        runOnUiThread(new Runnable() {
+//            @Override
+//            public void run() {
+//                com.google.zxing.Result result = scanningImage(strPath);
+//                if(null != result){
+////                    showToast("识别成功："+result.getText());
+//                    successful(result.getText());
+//                }else{
+//                    showToast("识别失败,图片中没有二维码");
+//                }
+//            }
+//        });
+//
+//    }
+
+//    public String getRealPathFromUri(Uri uri) {
+//        String result;
+//        Cursor cursor = getContentResolver().query(uri,
+//                new String[]{MediaStore.Images.ImageColumns.DATA},
+//                null, null, null);
+//        if (cursor == null) result = uri.getPath();
+//        else {
+//            cursor.moveToFirst();
+//            int index = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
+//            result = cursor.getString(index);
+//            cursor.close();
+//        }
+//        return result;
+//
+//    }
 
 
 
