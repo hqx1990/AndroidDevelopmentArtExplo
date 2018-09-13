@@ -21,6 +21,7 @@ import com.bestvike.androiddevelopmentartexploration.listLeftDelete.leftDelete2.
 import com.bestvike.androiddevelopmentartexploration.liveData.LiveDataActivity;
 import com.bestvike.androiddevelopmentartexploration.paging.pagingLibrary.PagingLibraryActivity;
 import com.bestvike.androiddevelopmentartexploration.paging.asyncListUtil.AsyncListActivity;
+import com.bestvike.androiddevelopmentartexploration.runtimePermission.RuntimePermissionActivity;
 import com.bestvike.androiddevelopmentartexploration.rxImagePicker.RxImagePickerActivity;
 import com.bestvike.androiddevelopmentartexploration.xg.MyXGActivity;
 import com.bestvike.androiddevelopmentartexploration.zxing.activity.SweepTheVardActivity;
@@ -68,6 +69,7 @@ public class MainActivity extends BaseActivity {
         list.add("RecyclerView仿QQ左滑出删除功能2");
         list.add("jsWebView交互");
         list.add("扫描二维码，识别相册中的二维码");
+        list.add("权限判断类库：RuntimePermission");
         for(int i = 0;i<30;i++){
             list.add(String.valueOf(i));
         }
@@ -209,6 +211,11 @@ public class MainActivity extends BaseActivity {
                     case 16:
                         //扫描二维码，识别相册中的二维码
                         toActivity(SweepTheVardActivity.class);
+                        break;
+
+                    case 17:
+                        //权限判断类库：RuntimePermission
+                        toActivity(RuntimePermissionActivity.class);
                         break;
                 }
             }
