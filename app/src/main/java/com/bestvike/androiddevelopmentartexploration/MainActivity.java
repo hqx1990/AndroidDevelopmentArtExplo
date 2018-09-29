@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.bestvike.androiddevelopmentartexploration.HandlerUse.HandlerUseActivity;
 import com.bestvike.androiddevelopmentartexploration.IPC.SecondActivity;
 import com.bestvike.androiddevelopmentartexploration.IPC.ThirdActivity;
 import com.bestvike.androiddevelopmentartexploration.IPC.UserManager;
@@ -70,6 +71,7 @@ public class MainActivity extends BaseActivity {
         list.add("jsWebView交互");
         list.add("扫描二维码，识别相册中的二维码");
         list.add("权限判断类库：RuntimePermission");
+        list.add("Handler使用");
         for(int i = 0;i<30;i++){
             list.add(String.valueOf(i));
         }
@@ -216,6 +218,11 @@ public class MainActivity extends BaseActivity {
                     case 17:
                         //权限判断类库：RuntimePermission
                         toActivity(RuntimePermissionActivity.class);
+                        break;
+
+                    case 18:
+                        //Handler使用
+                        toActivity(HandlerUseActivity.class);
                         break;
                 }
             }
