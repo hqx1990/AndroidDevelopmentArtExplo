@@ -1,14 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
     defaultConfig {
         applicationId "com.bestvike.androiddevelopmentartexploration"
-        minSdkVersion 15
-        targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion  rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.version_release.versionCode
+        versionName rootProject.ext.version_release.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        flavorDimensions "versionCode"
     }
     buildTypes {
         release {
@@ -33,6 +34,77 @@ android {
             maven { url 'https://jitpack.io' }
         }
     }
+
+    signingConfigs {
+        debug {
+            keyAlias 'haiercash'
+            keyPassword '123456'
+            storeFile file('Haiercash-release.keystore')
+            storePassword '123456'
+        }
+
+        lintOptions {//Gradle编译禁用Lint报错
+            checkReleaseBuilds false
+            abortOnError false
+            disable 'MissingTranslation'
+        }
+    }
+
+    productFlavors{
+        shengchan{//生产
+            buildConfigField "String", "TheEnvironment", "\"生产\""
+            buildConfigField "String", "API_HOST", "\"https://app.haiercash.com:6688/\""//API Host
+            resValue "string", "app_name", "生产安卓开发艺术探索"
+            resValue("string", "growingio_project_id", "ab555ca13020c18c")
+            resValue("string", "growingio_url_scheme", "growing.2bc2dc8f893b849c")
+            resValue("string", "xg_id", "2100207419")
+            resValue("string", "xg_key", "A63DKG47KT6W")
+        }
+        kaifa{//开发
+            buildConfigField "String", "TheEnvironment", "\"开发\""
+            buildConfigField "String", "API_HOST", "\"http://10.164.194.123:9000/\""//API Host
+            resValue "string", "app_name", "开发安卓开发艺术探索"
+            resValue("string", "growingio_project_id", "ad1b4c7894dcdf85")
+            resValue("string", "growingio_url_scheme", "growing.90c6cb48304a294e")
+            resValue("string", "xg_id", "2100265008")
+            resValue("string", "xg_key", "A6XV6VI9I93X")
+        }
+        fengce{//封测
+            buildConfigField "String", "TheEnvironment", "\"封测\""
+            buildConfigField "String", "API_HOST", "\"https://testpm.haiercash.com/\""//API Host
+            resValue "string", "app_name", "封测安卓开发艺术探索"
+            resValue("string", "growingio_project_id", "ad1b4c7894dcdf85")
+            resValue("string", "growingio_url_scheme", "growing.90c6cb48304a294e")
+            resValue("string", "xg_id", "2100265008")
+            resValue("string", "xg_key", "A6XV6VI9I93X")
+        }
+    }
+
+    buildTypes {
+        /*生产环境*/
+        release {
+            //开启代码混淆
+            minifyEnabled false
+//            // 移除无用的resource文件
+//            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        /*开发环境*/
+        debug {
+            minifyEnabled false
+            signingConfig signingConfigs.debug
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            buildConfigField "String", "TheEnvironment", "\"开发\""
+            buildConfigField "String", "API_HOST", "\"http://10.164.194.123:9000/\""//API Host
+            resValue "string", "app_name", "测试安卓开发艺术探索"
+            resValue("string", "growingio_project_id", "ad1b4c7894dcdf85")
+            resValue("string", "growingio_url_scheme", "growing.90c6cb48304a294e")
+            resValue("string", "xg_id", "2100265008")
+            resValue("string", "xg_key", "A6XV6VI9I93X")
+        }
+    }
+
 }
 
 dependencies {
@@ -43,8 +115,9 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-    compile project(':beaselibrary')
-    compile project(':recyclerviewSwipe')
+    implementation project(':beaselibrary')
+    implementation project(':recyclerviewSwipe')
+    implementation project(':jsbridge')
 
     implementation files('libs/jg_filter_sdk_1.1.jar')
     implementation files('libs/mid-core-sdk-4.0.6.jar')
@@ -65,12 +138,12 @@ dependencies {
     implementation 'android.arch.paging:runtime:1.0.0-alpha3'
 
     //LogcatView 一款可以在手机中打开logcat控制台  https://github.com/SHPDZY/LogCatDialog#logcatview
-    compile 'com.github.SHPDZY:LogCatDialog:1.0.2'
+    implementation 'com.github.SHPDZY:LogCatDialog:1.0.2'
     //二维码识别
     implementation 'com.google.zxing:core:3.3.2'
 
     //权限判断库
-    compile 'com.yanzhenjie:permission:1.0.4'
+    implementation 'com.yanzhenjie:permission:1.0.4'
 
 
 }

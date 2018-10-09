@@ -72,6 +72,7 @@ public class MainActivity extends BaseActivity {
         list.add("扫描二维码，识别相册中的二维码");
         list.add("权限判断类库：RuntimePermission");
         list.add("Handler使用");
+        list.add("打包自动处理环境");
         for(int i = 0;i<30;i++){
             list.add(String.valueOf(i));
         }
@@ -88,7 +89,7 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onItemClick(View view, int position) {
                 String str  = list.get(position);
-                showToast(str);
+//                showToast(str);
                 switch (position){
                     case 0:
                         showDialog(str);
@@ -223,6 +224,11 @@ public class MainActivity extends BaseActivity {
                     case 18:
                         //Handler使用
                         toActivity(HandlerUseActivity.class);
+                        break;
+
+                    case 19:
+                        //打包自动处理环境
+                        showToast(BuildConfig.TheEnvironment);
                         break;
                 }
             }
