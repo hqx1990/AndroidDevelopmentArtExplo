@@ -23,10 +23,8 @@ import com.bestvike.androiddevelopmentartexploration.liveData.LiveDataActivity;
 import com.bestvike.androiddevelopmentartexploration.paging.pagingLibrary.PagingLibraryActivity;
 import com.bestvike.androiddevelopmentartexploration.paging.asyncListUtil.AsyncListActivity;
 import com.bestvike.androiddevelopmentartexploration.runtimePermission.RuntimePermissionActivity;
-import com.bestvike.androiddevelopmentartexploration.rxImagePicker.RxImagePickerActivity;
 import com.bestvike.androiddevelopmentartexploration.xg.MyXGActivity;
 import com.bestvike.androiddevelopmentartexploration.zxing.activity.SweepTheVardActivity;
-import com.bestvike.androiddevelopmentartexploration.zxing.activity.ZXingActivity;
 import com.example.beaselibrary.base.BaseActivity;
 import com.example.beaselibrary.base.BaseRecyclerAdapter;
 import com.example.beaselibrary.interfaces.DialogListener;
@@ -62,7 +60,7 @@ public class MainActivity extends BaseActivity {
         list.add("多线程2  com.ryg.chapter_2.remote");
         list.add("RecyclerView仿QQ左滑出删除功能");
         list.add("信鸽推送");
-        list.add("图片库RxImagePicker应用,识别图片中的二维码");
+        list.add("图片库RxImagePicker应用,识别图片中的二维码(已删除)");
         list.add("PagingLibrary分页加载框架的使用");
         list.add("基于Android官方AsyncListUtil优化改进RecyclerView分页加载机制");
         list.add("LiveData感知生命周期，数据同步回复等");
@@ -173,7 +171,7 @@ public class MainActivity extends BaseActivity {
                         break;
                     case 9:
                         //图片库RxImagePicker应用，识别图片中的二维码
-                        toActivity(RxImagePickerActivity.class);
+//                        toActivity(RxImagePickerActivity.class);
                         break;
                     case 10:
                         //PagingLibrary分页加载框架的使用

@@ -124,16 +124,6 @@ dependencies {
     implementation files('libs/wup-1.0.0.E-SNAPSHOT.jar')
     implementation files('libs/Xg_sdk_v3.2.4_20180504_1452.jar')
 
-    // 基础组件
-    implementation "com.github.qingmei2:rximagepicker:0.4.0"
-    // 自定义UI层基础组件
-    implementation "com.github.qingmei2:rximagepicker_support:0.4.0"
-    // 知乎图片选择器
-    implementation "com.github.qingmei2:rximagepicker_support_zhihu:0.4.0"
-    // 微信图片选择器
-    implementation "com.github.qingmei2:rximagepicker_support_wechat:0.4.0"
-
-
     //paging library
     implementation 'android.arch.paging:runtime:1.0.0-alpha3'
 
