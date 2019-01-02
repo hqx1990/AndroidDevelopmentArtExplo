@@ -22,7 +22,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>  {
 
     @Override
     public MyAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(AppApplication.CONTEXT).inflate(android.R.layout.simple_list_item_2, null);
+        View view = LayoutInflater.from(AppApplication.getInstance()).inflate(android.R.layout.simple_list_item_2, null);
         MyAdapter.ViewHolder holder = new MyAdapter.ViewHolder(view);
         return holder;
     }

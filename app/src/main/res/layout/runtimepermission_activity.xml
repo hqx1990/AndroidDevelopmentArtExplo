@@ -3,13 +3,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
+    android:orientation="vertical"
    >
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="权限获取"/>
+        android:text="通讯录权限和相机权限"/>
+
+    <Button
+        android:layout_marginTop="15dp"
+        android:id="@+id/btTheAddressBook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="通讯录"/>
 
 
 </LinearLayout>

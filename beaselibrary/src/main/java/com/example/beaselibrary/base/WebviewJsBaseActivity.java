@@ -183,7 +183,7 @@ public class WebviewJsBaseActivity extends BaseActivity implements IWebViewCallb
         Map<String, String> requestParam = new HashMap<>();
         try
         {
-            appVersion = BaseApplication.CONTEXT.getPackageManager().getPackageInfo(BaseApplication.CONTEXT.getPackageName(),
+            appVersion = BaseApplication.getInstance().getPackageManager().getPackageInfo(BaseApplication.getInstance().getPackageName(),
                     PackageManager.GET_CONFIGURATIONS).versionName;
         } catch (Exception e)
         {

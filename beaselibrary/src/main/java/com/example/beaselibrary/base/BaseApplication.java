@@ -14,6 +14,13 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        CONTEXT = getApplicationContext();
+        CONTEXT = this;
+    }
+
+    public static BaseApplication getInstance(){
+        if(null == CONTEXT){
+            CONTEXT = new BaseApplication();
+        }
+        return (BaseApplication) CONTEXT;
     }
 }

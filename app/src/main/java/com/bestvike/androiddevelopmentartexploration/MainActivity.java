@@ -23,14 +23,14 @@ import com.bestvike.androiddevelopmentartexploration.listLeftDelete.leftDelete2.
 import com.bestvike.androiddevelopmentartexploration.liveData.LiveDataActivity;
 import com.bestvike.androiddevelopmentartexploration.paging.pagingLibrary.PagingLibraryActivity;
 import com.bestvike.androiddevelopmentartexploration.paging.asyncListUtil.AsyncListActivity;
+import com.bestvike.androiddevelopmentartexploration.runtimePermission.AccessPermissions;
+import com.bestvike.androiddevelopmentartexploration.runtimePermission.AccessPermissionsInterface;
 import com.bestvike.androiddevelopmentartexploration.runtimePermission.RuntimePermissionActivity;
 import com.bestvike.androiddevelopmentartexploration.xg.MyXGActivity;
 import com.bestvike.androiddevelopmentartexploration.zxing.activity.SweepTheVardActivity;
 import com.example.beaselibrary.base.BaseActivity;
 import com.example.beaselibrary.base.BaseRecyclerAdapter;
 import com.example.beaselibrary.interfaces.DialogListener;
-import com.yanzhenjie.permission.Action;
-import com.yanzhenjie.permission.AndPermission;
 import com.zy.logcat.LogCatControl;
 
 import java.util.ArrayList;
@@ -214,26 +214,20 @@ public class MainActivity extends BaseActivity {
                         break;
                     case 16:
                         //扫描二维码，识别相册中的二维码
-                        AndPermission.with(MainActivity.this).
-                                runtime().
-                                permission(Manifest.permission.CAMERA).//要获取的权限组
-                                onGranted(new Action<List<String>>() {
-                                    @Override
-                                    public void onAction(List<String> data) {
-                                        //有权限
-                                        Log.e("---","获取到相机权限");
-                                        toActivity(SweepTheVardActivity.class);
-                                    }
-                                }).
-                                onDenied(new Action<List<String>>() {
-                                    @Override
-                                    public void onAction(List<String> data) {
-                                        //没有权限
-                                        showToast("请打开相机权限");
-                                        Log.e("---","没有获取到相机权限");
-                                    }
-                                }).
-                                start();
+                        AccessPermissions.getInstance().isPermissions(new AccessPermissionsInterface() {
+                            @Override
+                            public void authorityToJudge(boolean isPermissions, List<String> data) {
+                                if(isPermissions){
+                                    //有权限
+                                    Log.e("---","获取到相机权限");
+                                    toActivity(SweepTheVardActivity.class);
+                                }else{
+                                    //没有权限
+                                    showToast("请打开相机权限");
+                                    Log.e("---","没有获取到相机权限");
+                                }
+                            }
+                        },Manifest.permission.CAMERA);
                         break;
 
                     case 17:

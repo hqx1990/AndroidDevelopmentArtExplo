@@ -121,7 +121,7 @@ public class ShowDialog {
     public void toast(String msg){
         if (mToast == null)
         {
-            mToast = Toast.makeText(BaseApplication.CONTEXT, "", Toast.LENGTH_SHORT);
+            mToast = Toast.makeText(BaseApplication.getInstance(), "", Toast.LENGTH_SHORT);
         }
         mToast.setText(msg);
         mToast.show();
