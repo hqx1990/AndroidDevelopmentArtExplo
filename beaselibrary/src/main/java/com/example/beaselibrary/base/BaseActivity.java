@@ -32,6 +32,14 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         if (OSUtils.getRomType() == OSUtils.ROM_TYPE.OTHER)
             FitStateUI.setImmersionStateMode(this);
         FitStateUI.initStatusBar(this);
+
+        BaseApplication.getActManger().pushActivity(this);//将activity加入统一管理类
+    }
+
+    @Override
+    protected void onDestroy() {
+        BaseApplication.getActManger().popActivity(this);//将activity移出栈
+        super.onDestroy();
     }
 
     @Override

@@ -8,3 +8,11 @@ rxImagePicker  包中主要是使用图片库 RxImagePicker 从相册选择照�
 paging 包   分页加载框架
 
 RuntimePermissionActivity  获取单个或者多个权限，封装及使用案例
+
+ActManger activity 管理类
+功能：关闭所有的界面，
+关闭除某一个界面外的所有界面，
+关闭某一个页面后打开的所有界面，
+关闭某一个页面之前打开的所有页面
+关闭指定的界面，
+获取指定的界面
