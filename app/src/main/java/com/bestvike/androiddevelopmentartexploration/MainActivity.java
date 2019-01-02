@@ -1,5 +1,6 @@
 package com.bestvike.androiddevelopmentartexploration;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -28,6 +29,8 @@ import com.bestvike.androiddevelopmentartexploration.zxing.activity.SweepTheVard
 import com.example.beaselibrary.base.BaseActivity;
 import com.example.beaselibrary.base.BaseRecyclerAdapter;
 import com.example.beaselibrary.interfaces.DialogListener;
+import com.yanzhenjie.permission.Action;
+import com.yanzhenjie.permission.AndPermission;
 import com.zy.logcat.LogCatControl;
 
 import java.util.ArrayList;
@@ -50,7 +53,7 @@ public class MainActivity extends BaseActivity {
     }
 
     private void datas(){
-        list = new ArrayList<String>();
+        list = new ArrayList<>();
         list.add("弹框1");
         list.add("弹框2");
         list.add("弹框3");
@@ -211,7 +214,26 @@ public class MainActivity extends BaseActivity {
                         break;
                     case 16:
                         //扫描二维码，识别相册中的二维码
-                        toActivity(SweepTheVardActivity.class);
+                        AndPermission.with(MainActivity.this).
+                                runtime().
+                                permission(Manifest.permission.CAMERA).//要获取的权限组
+                                onGranted(new Action<List<String>>() {
+                                    @Override
+                                    public void onAction(List<String> data) {
+                                        //有权限
+                                        Log.e("---","获取到相机权限");
+                                        toActivity(SweepTheVardActivity.class);
+                                    }
+                                }).
+                                onDenied(new Action<List<String>>() {
+                                    @Override
+                                    public void onAction(List<String> data) {
+                                        //没有权限
+                                        showToast("请打开相机权限");
+                                        Log.e("---","没有获取到相机权限");
+                                    }
+                                }).
+                                start();
                         break;
 
                     case 17:

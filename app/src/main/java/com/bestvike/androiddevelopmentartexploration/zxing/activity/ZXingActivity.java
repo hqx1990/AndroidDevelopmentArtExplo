@@ -1,34 +1,27 @@
 package com.bestvike.androiddevelopmentartexploration.zxing.activity;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Vibrator;
-import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import com.bestvike.androiddevelopmentartexploration.R;
-import com.bestvike.androiddevelopmentartexploration.rxImagePicker.SystemImagePicker;
 import com.bestvike.androiddevelopmentartexploration.zxing.camera.CameraManager;
 import com.bestvike.androiddevelopmentartexploration.zxing.decoding.CaptureActivityHandler;
 import com.bestvike.androiddevelopmentartexploration.zxing.decoding.InactivityTimer;
 import com.bestvike.androiddevelopmentartexploration.zxing.decoding.RGBLuminanceSource;
-import com.bestvike.androiddevelopmentartexploration.zxing.util.Constant;
 import com.bestvike.androiddevelopmentartexploration.zxing.util.UriUtil;
 import com.bestvike.androiddevelopmentartexploration.zxing.view.ViewfinderView;
 import com.example.beaselibrary.base.BaseActivity;
@@ -40,14 +33,11 @@ import com.google.zxing.FormatException;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.HybridBinarizer;
 import com.google.zxing.qrcode.QRCodeReader;
-import com.qingmei2.rximagepicker.core.RxImagePicker;
-import com.qingmei2.rximagepicker.entity.Result;
 
 import java.io.IOException;
 import java.util.Hashtable;
 import java.util.Vector;
 
-import io.reactivex.functions.Consumer;
 
 /**
  * zxing   扫描二维码，识别相册中的二维码

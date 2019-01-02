@@ -14,7 +14,6 @@ import android.webkit.WebView;
 import com.bestvike.androiddevelopmentartexploration.R;
 import com.example.beaselibrary.base.WebviewJsBaseActivity;
 import com.example.beaselibrary.util.CheckUtil;
-import com.qingmei2.rximagepicker_extension.utils.UIUtils;
 
 import org.json.JSONObject;
 
