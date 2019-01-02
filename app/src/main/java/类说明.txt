@@ -6,3 +6,5 @@ listLeftDelete   包下主要功能是列表的各种滑动
 rxImagePicker  包中主要是使用图片库 RxImagePicker 从相册选择照片，主要主题有系统主题、知乎主题、微信主题
 
 paging 包   分页加载框架
+
+RuntimePermissionActivity  获取单个或者多个权限，封装及使用案例
