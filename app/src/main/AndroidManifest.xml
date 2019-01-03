@@ -78,6 +78,8 @@
 
         <activity android:name="com.bestvike.androiddevelopmentartexploration.xg.MyXGActivity"/>
 
+        <activity android:name="com.bestvike.androiddevelopmentartexploration.useMVPFramework.UseMVPFrameworkActivity"/>
+
         <!--Handler使用-->
         <activity android:name="com.bestvike.androiddevelopmentartexploration.HandlerUse.HandlerUseActivity"/>
 

@@ -17,9 +17,6 @@ import com.example.beaselibrary.util.CheckUtil;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,7 +32,7 @@ import bk.com.jsbridge.SlowlyProgressBar;
 
 
 /**
- * Created by xuxiaoyan on 2017/8/19.
+ * Created by hqx on 2017/8/19.
  * Webview JS交互基类
  */
 
@@ -131,6 +128,11 @@ public class WebviewJsBaseActivity extends BaseActivity implements IWebViewCallb
         // 并且能实时添加，这时候就需要这么一个方法
         //JSBridge.register方法第二个参数必须是IBridge接口的实现类
         JSBridge.register("bk_bridge", BridgeImpl.class);
+    }
+
+    @Override
+    protected void destroyPresenter() {
+
     }
 
     /**

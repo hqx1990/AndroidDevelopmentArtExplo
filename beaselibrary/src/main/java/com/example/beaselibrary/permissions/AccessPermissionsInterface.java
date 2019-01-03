@@ -1,4 +1,4 @@
-package com.bestvike.androiddevelopmentartexploration.runtimePermission;
+package com.example.beaselibrary.permissions;
 
 import java.util.List;
 
@@ -8,5 +8,5 @@ public interface AccessPermissionsInterface {
      * @param isPermissions
      * @param data
      */
-    void authorityToJudge (boolean isPermissions , List<String> data);
+    void authorityToJudge(boolean isPermissions, List<String> data);
 }

@@ -33,6 +33,11 @@ public class LeftDeletaActivity extends BaseActivity {
         findView();
     }
 
+    @Override
+    protected void destroyPresenter() {
+
+    }
+
     private void getData(){
         list = new ArrayList<String>();
 

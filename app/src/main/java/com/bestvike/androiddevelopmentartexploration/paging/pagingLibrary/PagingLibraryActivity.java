@@ -68,6 +68,12 @@ public class PagingLibraryActivity extends BaseActivity {
         });
 
     }
+
+    @Override
+    protected void destroyPresenter() {
+
+    }
+
     private void makePageList() {
         PagedList.Config mPagedListConfig = new PagedList.Config.Builder()
                 .setPageSize(3) //分页数据的数量。在后面的DataSource之loadRange中，count即为每次加载的这个设定值。

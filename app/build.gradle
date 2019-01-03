@@ -132,8 +132,4 @@ dependencies {
     //二维码识别
     implementation 'com.google.zxing:core:3.3.2'
 
-    //权限判断库
-    implementation 'com.yanzhenjie:permission:2.0.0-rc12'
-
-
 }

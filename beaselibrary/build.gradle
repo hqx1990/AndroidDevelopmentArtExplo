@@ -33,6 +33,12 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     implementation 'com.android.support:recyclerview-v7:23.1.1'
 
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    //json 解析
+    implementation 'com.alibaba:fastjson:1.1.67.android'
+    //权限判断库
+    implementation 'com.yanzhenjie:permission:2.0.0-rc12'
+
     implementation project(':jsbridge')
 
 }

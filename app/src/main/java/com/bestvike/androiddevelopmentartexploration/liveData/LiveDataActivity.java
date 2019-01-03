@@ -1,7 +1,6 @@
 package com.bestvike.androiddevelopmentartexploration.liveData;
 
 import android.arch.lifecycle.Observer;
-import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -19,6 +18,11 @@ public class LiveDataActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.myxgactivity);
         LocationLiveData.get().observe(this,new MyObserver());
+    }
+
+    @Override
+    protected void destroyPresenter() {
+
     }
 
     private class MyObserver implements  Observer<String>{

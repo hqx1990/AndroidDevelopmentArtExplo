@@ -9,12 +9,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.bestvike.androiddevelopmentartexploration.R;
-import com.bestvike.androiddevelopmentartexploration.listLeftDelete.ListLeftDeleteAdapter;
-import com.bestvike.androiddevelopmentartexploration.listLeftDelete.OnClickDelete;
 import com.example.beaselibrary.base.BaseActivity;
-import com.example.beaselibrary.base.BaseRecyclerAdapter;
 import com.example.beaselibrary.util.ShowDialog;
-import com.yanzhenjie.recyclerview.swipe.SwipeMenuRecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +28,11 @@ public class LeftDeletaActivity2 extends BaseActivity implements LeftDeletaAdapt
 
         getData();
         findView();
+    }
+
+    @Override
+    protected void destroyPresenter() {
+
     }
 
     private void getData(){

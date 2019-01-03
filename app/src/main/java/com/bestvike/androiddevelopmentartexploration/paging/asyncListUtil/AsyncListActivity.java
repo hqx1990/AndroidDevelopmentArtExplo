@@ -29,6 +29,11 @@ public class AsyncListActivity extends BaseActivity {
         findView();
     }
 
+    @Override
+    protected void destroyPresenter() {
+
+    }
+
     private void findView(){
         mRecyclerView = findViewById(R.id.recyclerView);
 

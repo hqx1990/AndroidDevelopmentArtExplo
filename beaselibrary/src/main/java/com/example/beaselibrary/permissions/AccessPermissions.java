@@ -1,7 +1,8 @@
-package com.bestvike.androiddevelopmentartexploration.runtimePermission;
+package com.example.beaselibrary.permissions;
 
 
-import com.bestvike.androiddevelopmentartexploration.AppApplication;
+
+import com.example.beaselibrary.base.BaseApplication;
 import com.yanzhenjie.permission.Action;
 import com.yanzhenjie.permission.AndPermission;
 
@@ -25,7 +26,7 @@ public class AccessPermissions {
      * @return
      */
     public boolean isPermissions(final AccessPermissionsInterface accessPermissionsInterface, String... permissions){
-        AndPermission.with(AppApplication.getInstance()).
+        AndPermission.with(BaseApplication.getInstance()).
                 runtime().
                 permission(permissions).//要获取的权限组
                 onGranted(new Action<List<String>>() {

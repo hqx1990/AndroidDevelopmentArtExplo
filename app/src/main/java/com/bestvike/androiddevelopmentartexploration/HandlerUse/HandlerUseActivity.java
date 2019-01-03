@@ -10,7 +10,6 @@ import com.bestvike.androiddevelopmentartexploration.R;
 import com.example.beaselibrary.base.BaseActivity;
 
 import java.util.Timer;
-import java.util.TimerTask;
 
 public class HandlerUseActivity extends BaseActivity {
 
@@ -64,6 +63,11 @@ public class HandlerUseActivity extends BaseActivity {
                 myHandler.post(runnable);
                 break;
         }
+    }
+
+    @Override
+    protected void destroyPresenter() {
+
     }
 
     Handler handler = new Handler(){

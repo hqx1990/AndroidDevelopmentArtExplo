@@ -137,6 +137,11 @@ public class ZXingActivity extends BaseActivity  implements SurfaceHolder.Callba
         }
     }
 
+    @Override
+    protected void destroyPresenter() {
+
+    }
+
     //--------------------------------------以下为zxing处理相册中的二维码----------------------------------------------------------
 
     @Override

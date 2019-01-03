@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.beaselibrary.interfaces.DialogListener;
+import com.example.beaselibrary.network.okHttp.NetResultCallBack;
 import com.example.beaselibrary.util.ShowDialog;
 import com.example.beaselibrary.util.taskbar.FitStateUI;
 import com.example.beaselibrary.util.taskbar.OSUtils;
@@ -18,7 +19,7 @@ import com.example.beaselibrary.util.taskbar.OSUtils;
  * Created by Administrator on 2018/3/29.
  */
 
-public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener{
+public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener,NetResultCallBack {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -56,6 +57,11 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         mToast.setText(str);
         mToast.show();
     }
+
+    /**
+     * 用于销毁presenter
+     */
+    protected abstract void destroyPresenter();
 
     /**
      * 只有一个按钮的提示框
@@ -128,5 +134,15 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     }
     public void toActivity(Class<?> cls,Bundle bundle){
         toActivity(cls,bundle,-1);
+    }
+
+    @Override
+    public void onSuccess(Object response, String flag) {
+    }
+
+    @Override
+    public void onErr(String retFlag, Object response, Object retBody, String flag) {
+        showProgress(false);
+        showDialog(response.toString());
     }
 }

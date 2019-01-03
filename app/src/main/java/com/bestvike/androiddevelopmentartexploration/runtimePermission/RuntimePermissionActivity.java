@@ -7,6 +7,8 @@ import android.view.View;
 
 import com.bestvike.androiddevelopmentartexploration.R;
 import com.example.beaselibrary.base.BaseActivity;
+import com.example.beaselibrary.permissions.AccessPermissions;
+import com.example.beaselibrary.permissions.AccessPermissionsInterface;
 
 import java.util.List;
 
@@ -48,6 +50,11 @@ public class RuntimePermissionActivity extends BaseActivity {
                 break;
 
         }
+    }
+
+    @Override
+    protected void destroyPresenter() {
+
     }
 
     /**

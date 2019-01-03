@@ -34,4 +34,11 @@ public class CheckUtil {
         return dm.widthPixels;
     }
 
+    /* 去.0 */
+    public String deletePointZero(String number) {
+        if (!isEmpty(number) && number.endsWith(".0")) {
+            return number.substring(0, number.length() - 2);
+        }
+        return number;
+    }
 }

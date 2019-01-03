@@ -17,4 +17,9 @@ public class ThirdActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         Log.e("0-----","userId:"+UserManager.sUserId);
     }
+
+    @Override
+    protected void destroyPresenter() {
+
+    }
 }

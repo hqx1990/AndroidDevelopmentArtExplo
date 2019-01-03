@@ -23,14 +23,15 @@ import com.bestvike.androiddevelopmentartexploration.listLeftDelete.leftDelete2.
 import com.bestvike.androiddevelopmentartexploration.liveData.LiveDataActivity;
 import com.bestvike.androiddevelopmentartexploration.paging.pagingLibrary.PagingLibraryActivity;
 import com.bestvike.androiddevelopmentartexploration.paging.asyncListUtil.AsyncListActivity;
-import com.bestvike.androiddevelopmentartexploration.runtimePermission.AccessPermissions;
-import com.bestvike.androiddevelopmentartexploration.runtimePermission.AccessPermissionsInterface;
 import com.bestvike.androiddevelopmentartexploration.runtimePermission.RuntimePermissionActivity;
+import com.bestvike.androiddevelopmentartexploration.useMVPFramework.UseMVPFrameworkActivity;
 import com.bestvike.androiddevelopmentartexploration.xg.MyXGActivity;
 import com.bestvike.androiddevelopmentartexploration.zxing.activity.SweepTheVardActivity;
 import com.example.beaselibrary.base.BaseActivity;
 import com.example.beaselibrary.base.BaseRecyclerAdapter;
 import com.example.beaselibrary.interfaces.DialogListener;
+import com.example.beaselibrary.permissions.AccessPermissions;
+import com.example.beaselibrary.permissions.AccessPermissionsInterface;
 import com.zy.logcat.LogCatControl;
 
 import java.util.ArrayList;
@@ -52,6 +53,11 @@ public class MainActivity extends BaseActivity {
         Log.e("0-----","userId:"+UserManager.sUserId);
     }
 
+    @Override
+    protected void destroyPresenter() {
+
+    }
+
     private void datas(){
         list = new ArrayList<>();
         list.add("弹框1");
@@ -63,7 +69,7 @@ public class MainActivity extends BaseActivity {
         list.add("多线程2  com.ryg.chapter_2.remote");
         list.add("RecyclerView仿QQ左滑出删除功能");
         list.add("信鸽推送");
-        list.add("图片库RxImagePicker应用,识别图片中的二维码(已删除)");
+        list.add("发送验证码");
         list.add("PagingLibrary分页加载框架的使用");
         list.add("基于Android官方AsyncListUtil优化改进RecyclerView分页加载机制");
         list.add("LiveData感知生命周期，数据同步回复等");
@@ -173,8 +179,8 @@ public class MainActivity extends BaseActivity {
                         toActivity(MyXGActivity.class);
                         break;
                     case 9:
-                        //图片库RxImagePicker应用，识别图片中的二维码
-//                        toActivity(RxImagePickerActivity.class);
+                        //发送验证码
+                        toActivity(UseMVPFrameworkActivity.class);
                         break;
                     case 10:
                         //PagingLibrary分页加载框架的使用

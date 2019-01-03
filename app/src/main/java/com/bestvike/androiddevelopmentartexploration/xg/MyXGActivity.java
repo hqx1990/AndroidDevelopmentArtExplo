@@ -1,8 +1,5 @@
 package com.bestvike.androiddevelopmentartexploration.xg;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -15,7 +12,6 @@ import com.example.beaselibrary.base.BaseActivity;
 import com.tencent.android.tpush.XGIOperateCallback;
 import com.tencent.android.tpush.XGPushConfig;
 import com.tencent.android.tpush.XGPushManager;
-import com.tencent.android.tpush.common.Constants;
 
 import java.lang.ref.WeakReference;
 
@@ -35,6 +31,11 @@ public class MyXGActivity extends BaseActivity {
         getData();
 
 
+
+    }
+
+    @Override
+    protected void destroyPresenter() {
 
     }
 

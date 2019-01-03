@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.security.MessageDigest;
 
 public class IoText1 {
     private static String path = "C:/Users/ThinkPad/Desktop/ff";
@@ -11,13 +12,14 @@ public class IoText1 {
     public static void main(String [] args){
         system("这是个IO流练习文本");
         //在桌面创建一个文件夹ff
-        createFolder();
-
-        createFile();//创建一个文件
-
-        writeFile();//写入内容到文件中
-
-        readFile();//读出文件内容
+//        createFolder();
+//
+//        createFile();//创建一个文件
+//
+//        writeFile();//写入内容到文件中
+//
+//        readFile();//读出文件内容
+        system(string2MD5("distId=1234567&phone=12333212&thirdDbid=1234567caissa"));
     }
 
     /**
@@ -119,5 +121,35 @@ public class IoText1 {
 
     private static void system(String str){
         System.out.println(str);
+    }
+
+    public static String string2MD5(String inStr)
+    {
+        MessageDigest md5 = null;
+        try
+        {
+            md5 = MessageDigest.getInstance("MD5");
+        } catch (Exception e)
+        {
+            System.out.println(e.toString());
+            e.printStackTrace();
+            return "";
+        }
+        char[] charArray = inStr.toCharArray();
+        byte[] byteArray = new byte[charArray.length];
+
+        for (int i = 0; i < charArray.length; i++)
+            byteArray[i] = (byte) charArray[i];
+        byte[] md5Bytes = md5.digest(byteArray);
+        StringBuffer hexValue = new StringBuffer();
+        for (int i = 0; i < md5Bytes.length; i++)
+        {
+            int val = ((int) md5Bytes[i]) & 0xff;
+            if (val < 16)
+                hexValue.append("0");
+            hexValue.append(Integer.toHexString(val));
+        }
+        return hexValue.toString();
+
     }
 }
