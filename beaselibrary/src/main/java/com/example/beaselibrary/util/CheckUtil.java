@@ -1,6 +1,5 @@
 package com.example.beaselibrary.util;
 
-import android.content.Context;
 import android.util.DisplayMetrics;
 
 import java.util.List;
