@@ -13,6 +13,7 @@ public class BaseApplication extends Application {
 
     public static Context CONTEXT;
     private static ActManger actManger = null; // activity管理类
+    public static String baseUrl ;
 
 
     @Override

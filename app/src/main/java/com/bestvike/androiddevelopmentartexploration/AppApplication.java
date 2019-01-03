@@ -7,6 +7,6 @@ public class AppApplication extends BaseApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-
+        baseUrl = BuildConfig.API_HOST;
     }
 }

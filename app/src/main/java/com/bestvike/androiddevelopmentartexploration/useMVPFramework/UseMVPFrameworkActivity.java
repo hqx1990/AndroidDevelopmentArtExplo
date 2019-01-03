@@ -7,6 +7,7 @@ import android.widget.Button;
 
 import com.bestvike.androiddevelopmentartexploration.R;
 import com.example.beaselibrary.base.BaseActivity;
+import com.example.beaselibrary.base.BaseUrl;
 
 /**
  * mvp 框架的使用案例
@@ -55,6 +56,6 @@ public class UseMVPFrameworkActivity extends BaseActivity implements UseMVPFrame
 
     @Override
     public void verificationCodeView(GetDictBeanRtn getDictBeanRtn) {
-        showDialog("接口调用成功"+getDictBeanRtn.COM_KIND.size());
+        showDialog("接口调用成功"+getDictBeanRtn.COM_KIND.size()+","+BaseUrl.baseUrl);
     }
 }

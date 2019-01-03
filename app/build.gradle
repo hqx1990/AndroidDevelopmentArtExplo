@@ -96,7 +96,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 
             buildConfigField "String", "TheEnvironment", "\"开发\""
-            buildConfigField "String", "API_HOST", "\"http://10.164.194.123:9000/\""//API Host
+            buildConfigField "String", "API_HOST", "\"http://10.164.194.123:9000/\""//测试
+//            buildConfigField "String", "API_HOST", "\"https://testpm.haiercash.com/\""//封测
             resValue "string", "app_name", "测试安卓开发艺术探索"
             resValue("string", "growingio_project_id", "ad1b4c7894dcdf85")
             resValue("string", "growingio_url_scheme", "growing.90c6cb48304a294e")
