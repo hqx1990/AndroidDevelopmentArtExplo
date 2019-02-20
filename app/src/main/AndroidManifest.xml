@@ -83,6 +83,9 @@
         <!--Handler使用-->
         <activity android:name="com.bestvike.androiddevelopmentartexploration.HandlerUse.HandlerUseActivity"/>
 
+        <!--一个textView 点击不同的地方调用不同的方法-->
+        <activity android:name="com.bestvike.androiddevelopmentartexploration.textViewOnClick.AgreementActivity"/>
+
         <!-- 【必须】 信鸽receiver广播接收 -->
         <receiver android:name="com.tencent.android.tpush.XGPushReceiver"
             android:process=":xg_service_v3" >

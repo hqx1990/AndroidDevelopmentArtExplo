@@ -24,6 +24,7 @@ import com.bestvike.androiddevelopmentartexploration.liveData.LiveDataActivity;
 import com.bestvike.androiddevelopmentartexploration.paging.pagingLibrary.PagingLibraryActivity;
 import com.bestvike.androiddevelopmentartexploration.paging.asyncListUtil.AsyncListActivity;
 import com.bestvike.androiddevelopmentartexploration.runtimePermission.RuntimePermissionActivity;
+import com.bestvike.androiddevelopmentartexploration.textViewOnClick.AgreementActivity;
 import com.bestvike.androiddevelopmentartexploration.useMVPFramework.UseMVPFrameworkActivity;
 import com.bestvike.androiddevelopmentartexploration.xg.MyXGActivity;
 import com.bestvike.androiddevelopmentartexploration.zxing.activity.SweepTheVardActivity;
@@ -80,6 +81,7 @@ public class MainActivity extends BaseActivity {
         list.add("权限判断类库：RuntimePermission");
         list.add("Handler使用");
         list.add("打包自动处理环境");
+        list.add("TextView点击");
         for(int i = 0;i<30;i++){
             list.add(String.valueOf(i));
         }
@@ -249,6 +251,10 @@ public class MainActivity extends BaseActivity {
                     case 19:
                         //打包自动处理环境
                         showToast(BuildConfig.TheEnvironment);
+                        break;
+                    case 20:
+                        //TextView点击
+                        toActivity(AgreementActivity.class);
                         break;
                 }
             }
