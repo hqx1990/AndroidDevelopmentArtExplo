@@ -26,6 +26,7 @@ import com.bestvike.androiddevelopmentartexploration.paging.asyncListUtil.AsyncL
 import com.bestvike.androiddevelopmentartexploration.runtimePermission.RuntimePermissionActivity;
 import com.bestvike.androiddevelopmentartexploration.textViewOnClick.AgreementActivity;
 import com.bestvike.androiddevelopmentartexploration.useMVPFramework.UseMVPFrameworkActivity;
+import com.bestvike.androiddevelopmentartexploration.viewPagerFragment.ViewPagerActivity;
 import com.bestvike.androiddevelopmentartexploration.xg.MyXGActivity;
 import com.bestvike.androiddevelopmentartexploration.zxing.activity.SweepTheVardActivity;
 import com.example.beaselibrary.base.BaseActivity;
@@ -82,6 +83,7 @@ public class MainActivity extends BaseActivity {
         list.add("Handler使用");
         list.add("打包自动处理环境");
         list.add("TextView点击");
+        list.add("ViewPager的简单实用");
         for(int i = 0;i<30;i++){
             list.add(String.valueOf(i));
         }
@@ -255,6 +257,10 @@ public class MainActivity extends BaseActivity {
                     case 20:
                         //TextView点击
                         toActivity(AgreementActivity.class);
+                        break;
+                    case 21:
+                        //ViewPager的简单实用
+                        toActivity(ViewPagerActivity.class);
                         break;
                 }
             }

@@ -23,3 +23,5 @@ IoText1  Io流的简单实用
 verificationCode  mvp 框架的实用案例，包括接口调用
 
 AgreementActivity  一个textView 点击不同的地方调用不同的方法
+
+ViewPagerActivity  ViewPager的简单使用

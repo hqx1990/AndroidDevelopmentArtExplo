@@ -2,6 +2,7 @@ package com.example.beaselibrary.base;
 
 import android.app.Application;
 import android.content.Context;
+import android.support.v4.app.FragmentActivity;
 
 import com.example.beaselibrary.util.ActManger;
 
@@ -14,6 +15,7 @@ public class BaseApplication extends Application {
     public static Context CONTEXT;
     private static ActManger actManger = null; // activity管理类
     public static String baseUrl ;
+    public FragmentActivity currentActivity;
 
 
     @Override

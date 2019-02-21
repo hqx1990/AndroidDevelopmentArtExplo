@@ -85,6 +85,8 @@
 
         <!--一个textView 点击不同的地方调用不同的方法-->
         <activity android:name="com.bestvike.androiddevelopmentartexploration.textViewOnClick.AgreementActivity"/>
+        <!--viewpager的简单使用-->
+        <activity android:name="com.bestvike.androiddevelopmentartexploration.viewPagerFragment.ViewPagerActivity"/>
 
         <!-- 【必须】 信鸽receiver广播接收 -->
         <receiver android:name="com.tencent.android.tpush.XGPushReceiver"
