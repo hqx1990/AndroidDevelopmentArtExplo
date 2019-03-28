@@ -16,6 +16,7 @@ import com.bestvike.androiddevelopmentartexploration.HandlerUse.HandlerUseActivi
 import com.bestvike.androiddevelopmentartexploration.IPC.SecondActivity;
 import com.bestvike.androiddevelopmentartexploration.IPC.ThirdActivity;
 import com.bestvike.androiddevelopmentartexploration.IPC.UserManager;
+import com.bestvike.androiddevelopmentartexploration.dbflow.MyDBFlowActivity;
 import com.bestvike.androiddevelopmentartexploration.homePpage.HomePageAdapter;
 import com.bestvike.androiddevelopmentartexploration.jsWebView.JsWebViewActivity;
 import com.bestvike.androiddevelopmentartexploration.listLeftDelete.leftDelete.LeftDeletaActivity;
@@ -84,6 +85,7 @@ public class MainActivity extends BaseActivity {
         list.add("打包自动处理环境");
         list.add("TextView点击");
         list.add("ViewPager的简单实用");
+        list.add("DBFLOW使用（数据库框架）");
         for(int i = 0;i<30;i++){
             list.add(String.valueOf(i));
         }
@@ -261,6 +263,10 @@ public class MainActivity extends BaseActivity {
                     case 21:
                         //ViewPager的简单实用
                         toActivity(ViewPagerActivity.class);
+                        break;
+                    case 22:
+                        //DBFLOW使用（数据库框架）
+                        toActivity(MyDBFlowActivity.class);
                         break;
                 }
             }

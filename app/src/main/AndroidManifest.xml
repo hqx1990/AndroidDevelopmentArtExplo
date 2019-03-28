@@ -87,6 +87,8 @@
         <activity android:name="com.bestvike.androiddevelopmentartexploration.textViewOnClick.AgreementActivity"/>
         <!--viewpager的简单使用-->
         <activity android:name="com.bestvike.androiddevelopmentartexploration.viewPagerFragment.ViewPagerActivity"/>
+        <!--DBFlow 数据库框架的简单使用-->
+        <activity android:name="com.bestvike.androiddevelopmentartexploration.dbflow.MyDBFlowActivity"/>
 
         <!-- 【必须】 信鸽receiver广播接收 -->
         <receiver android:name="com.tencent.android.tpush.XGPushReceiver"
