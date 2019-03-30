@@ -31,7 +31,6 @@ android {
 
 }
 
-def dbFlow_version = "4.2.4"
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
@@ -48,10 +47,4 @@ dependencies {
     implementation 'com.yanzhenjie:permission:2.0.0-rc12'
 
     implementation project(':jsbridge')
-
-    //DBFlow 数据库框架引入
-    annotationProcessor "com.github.Raizlabs.DBFlow:dbflow-processor:${dbFlow_version}"
-    compile "com.github.Raizlabs.DBFlow:dbflow-core:${dbFlow_version}"
-    compile "com.github.Raizlabs.DBFlow:dbflow:${dbFlow_version}"
-
 }

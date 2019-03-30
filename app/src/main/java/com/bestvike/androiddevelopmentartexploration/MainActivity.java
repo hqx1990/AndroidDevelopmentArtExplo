@@ -16,7 +16,6 @@ import com.bestvike.androiddevelopmentartexploration.HandlerUse.HandlerUseActivi
 import com.bestvike.androiddevelopmentartexploration.IPC.SecondActivity;
 import com.bestvike.androiddevelopmentartexploration.IPC.ThirdActivity;
 import com.bestvike.androiddevelopmentartexploration.IPC.UserManager;
-import com.bestvike.androiddevelopmentartexploration.dbflow.MyDBFlowActivity;
 import com.bestvike.androiddevelopmentartexploration.homePpage.HomePageAdapter;
 import com.bestvike.androiddevelopmentartexploration.jsWebView.JsWebViewActivity;
 import com.bestvike.androiddevelopmentartexploration.listLeftDelete.leftDelete.LeftDeletaActivity;
@@ -25,6 +24,7 @@ import com.bestvike.androiddevelopmentartexploration.liveData.LiveDataActivity;
 import com.bestvike.androiddevelopmentartexploration.paging.pagingLibrary.PagingLibraryActivity;
 import com.bestvike.androiddevelopmentartexploration.paging.asyncListUtil.AsyncListActivity;
 import com.bestvike.androiddevelopmentartexploration.runtimePermission.RuntimePermissionActivity;
+import com.bestvike.androiddevelopmentartexploration.scott.ScottActivity;
 import com.bestvike.androiddevelopmentartexploration.textViewOnClick.AgreementActivity;
 import com.bestvike.androiddevelopmentartexploration.useMVPFramework.UseMVPFrameworkActivity;
 import com.bestvike.androiddevelopmentartexploration.viewPagerFragment.ViewPagerActivity;
@@ -35,6 +35,7 @@ import com.example.beaselibrary.base.BaseRecyclerAdapter;
 import com.example.beaselibrary.interfaces.DialogListener;
 import com.example.beaselibrary.permissions.AccessPermissions;
 import com.example.beaselibrary.permissions.AccessPermissionsInterface;
+import com.example.scott.LatitudeAndLongitude;
 import com.zy.logcat.LogCatControl;
 
 import java.util.ArrayList;
@@ -85,7 +86,7 @@ public class MainActivity extends BaseActivity {
         list.add("打包自动处理环境");
         list.add("TextView点击");
         list.add("ViewPager的简单实用");
-        list.add("DBFLOW使用（数据库框架）");
+        list.add("高德");
         for(int i = 0;i<30;i++){
             list.add(String.valueOf(i));
         }
@@ -265,8 +266,20 @@ public class MainActivity extends BaseActivity {
                         toActivity(ViewPagerActivity.class);
                         break;
                     case 22:
-                        //DBFLOW使用（数据库框架）
-                        toActivity(MyDBFlowActivity.class);
+                        //高德
+                        //获取定位权限
+                        AccessPermissions.getInstance().isPermissions(
+                                new AccessPermissionsInterface() {
+                                    @Override
+                                    public void authorityToJudge(boolean isPermissions, List<String> data) {
+                                        if(isPermissions){
+//                                            toActivity(LatitudeAndLongitude.class);
+                                            toActivity(ScottActivity.class);
+                                        }else{
+                                            showToast("没有权限");
+                                        }
+                                    }
+                                }, Manifest.permission.ACCESS_COARSE_LOCATION);
                         break;
                 }
             }
