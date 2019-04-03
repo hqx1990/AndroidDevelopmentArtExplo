@@ -24,8 +24,6 @@
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"></uses-permission>
 
     <application >
-        <!--定位，获取经纬度-->
-        <activity android:name="com.example.scott.LatitudeAndLongitude"/>
 
         <meta-data
             android:name="com.amap.api.v2.apikey"

@@ -35,7 +35,6 @@ import com.example.beaselibrary.base.BaseRecyclerAdapter;
 import com.example.beaselibrary.interfaces.DialogListener;
 import com.example.beaselibrary.permissions.AccessPermissions;
 import com.example.beaselibrary.permissions.AccessPermissionsInterface;
-import com.example.scott.LatitudeAndLongitude;
 import com.zy.logcat.LogCatControl;
 
 import java.util.ArrayList;
@@ -273,7 +272,6 @@ public class MainActivity extends BaseActivity {
                                     @Override
                                     public void authorityToJudge(boolean isPermissions, List<String> data) {
                                         if(isPermissions){
-//                                            toActivity(LatitudeAndLongitude.class);
                                             toActivity(ScottActivity.class);
                                         }else{
                                             showToast("没有权限");
