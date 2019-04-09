@@ -54,4 +54,11 @@ public interface SpKey {
     String ISFIRST_VERSION = "version";//根据版本号判断需不需要展示引导页
     String ISFIRST_ED_HINT = "edHint";//是否隐藏首页额度展示（Y：隐藏）
     String ISFIRST_FUND_HINT = "fundHint";//是否隐藏公积金/社保账户余额（Y：隐藏）
+
+    /**
+     * 锁屏计时相关
+     */
+    String LOCK = "LOCK";
+    String LOCK_CURRENT_TIME = "currentTime";//计时锁屏，上次用户点击操作的时间
+    String LOCK_ENVIRONMENT = "environment";//保存环境信息（测试/封测），若检测到环境改变则清空所有信息
 }

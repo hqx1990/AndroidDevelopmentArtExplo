@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,12 +17,14 @@ import com.example.beaselibrary.util.ShowDialog;
 import com.example.beaselibrary.util.taskbar.FitStateUI;
 import com.example.beaselibrary.util.taskbar.OSUtils;
 
+
 /**
  * Created by Administrator on 2018/3/29.
  */
 
 public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener,NetResultCallBack {
 
+    private LockScreen lockScreen;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -52,11 +55,19 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         super.onRestart();
         BaseApplication.getInstance().currentActivity=this;
     }
-
     @Override
     protected void onResume() {
         super.onResume();
         BaseApplication.getInstance().currentActivity=this;
+        if(null != lockScreen){
+            lockScreen.registerListener(new LockScreen.HDTouchEvtTimeoutListener() {
+                @Override
+                public void touchTimeoutReached(Object tag, long timeoutInMs) {
+                    //屏幕已锁定
+                    showDialog("屏幕已锁定，请解锁");
+                }
+            });
+        }
     }
 
     @Override
@@ -74,6 +85,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
 
         BaseApplication.getActManger().pushActivity(this);//将activity加入统一管理类
         BaseApplication.getInstance().currentActivity = this;
+        lockScreen = new LockScreen();
     }
 
     @Override
@@ -184,5 +196,42 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     public void onErr(String retFlag, Object response, Object retBody, String flag) {
         showProgress(false);
         showDialog(response.toString());
+    }
+
+    /*****************************************锁屏机制*****************************************************/
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        switch (ev.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                //每次操作都重新计时
+                onUserAction();
+                break;
+        }
+        return super.dispatchTouchEvent(ev);
+    }
+
+    /**
+     * 重新计时
+     */
+    private void onUserAction(){
+        if(null != lockScreen){
+            lockScreen.onUserAction();
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if(null != lockScreen){
+            lockScreen.stopChecking();
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if(null != lockScreen){
+            lockScreen.onUserAction();
+        }
     }
 }
