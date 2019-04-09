@@ -45,10 +45,10 @@ public class ScottPositioning {
     }
 
     //声明AMapLocationClient类对象
-    public AMapLocationClient mLocationClient = null;
+    private AMapLocationClient mLocationClient = null;
     //声明定位回调监听器
-    public AMapLocationListener mLocationListener;
-    public AMapLocationClientOption mLocationOption = null;
+    private AMapLocationListener mLocationListener;
+    private AMapLocationClientOption mLocationOption = null;
 
     private int locationCounts=1;//定位次数
     /**
