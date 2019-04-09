@@ -1,4 +1,4 @@
-package com.example.scott;
+package com.example.scott.bean;
 
 public class SclttBean {
     private String latitude;//维度

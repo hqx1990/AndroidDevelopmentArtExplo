@@ -6,8 +6,8 @@ import android.widget.TextView;
 
 import com.bestvike.androiddevelopmentartexploration.R;
 import com.example.beaselibrary.base.BaseActivity;
-import com.example.scott.LocationListener;
-import com.example.scott.SclttBean;
+import com.example.scott.myInterface.LocationListener;
+import com.example.scott.bean.SclttBean;
 import com.example.scott.ScottPositioning;
 
 /**
@@ -28,7 +28,7 @@ public class ScottActivity extends BaseActivity implements LocationListener{
         setContentView(R.layout.scott_activity);
         textView = findViewById(R.id.textView);
 
-        ScottPositioning.getIntent().getData(this);
+        ScottPositioning.getIntent().getData(this,this);
     }
 
     /**
@@ -43,5 +43,15 @@ public class ScottActivity extends BaseActivity implements LocationListener{
         textView.setText("定位成功："+sclttBean.getCountry()+sclttBean.getProvince()+sclttBean.getCity()+sclttBean.getDistrict()+
                 "\n经纬度"+sclttBean.getLongitude()+","+sclttBean.getLatitude()
         );
+    }
+
+    /**
+     * 定位失败
+     * @param errorCode  失败错误码
+     * @param errorInfo  失败信息
+     */
+    @Override
+    public void toLocateFailure(String errorCode, String errorInfo) {
+
     }
 }
