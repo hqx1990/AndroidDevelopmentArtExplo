@@ -6,10 +6,19 @@
     android:orientation="vertical">
 
     <RelativeLayout
-        android:background="#ffaa1122"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:background="#ffaa1122"
         android:gravity="center_vertical">
+
+        <Button
+            android:id="@+id/btGenerateTheQrCode"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="生产二维码"
+            android:textColor="@color/white"
+            android:gravity="center"
+            />
 
         <TextView
             android:id="@+id/txt_title"

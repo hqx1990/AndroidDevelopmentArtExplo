@@ -76,6 +76,7 @@ public class ZXingActivity extends BaseActivity  implements SurfaceHolder.Callba
 
     private void findview(){
         findViewById(R.id.btn_album).setOnClickListener(this);
+        findViewById(R.id.btGenerateTheQrCode).setOnClickListener(this);//点击生产二维码
 
         viewfinderView = findViewById(R.id.viewfinder_content);
         btnFlash =  findViewById(R.id.btn_flash);
@@ -133,6 +134,11 @@ public class ZXingActivity extends BaseActivity  implements SurfaceHolder.Callba
                 }catch (Exception e){
                     e.printStackTrace();
                 }
+                break;
+
+            case R.id.btGenerateTheQrCode:
+                //生成二维码
+                toActivity(GenerateTheQrCodeActivity.class);
                 break;
         }
     }

@@ -75,6 +75,8 @@
         <activity android:name="com.bestvike.androiddevelopmentartexploration.liveData.LiveDataActivity"/>
         <!--扫描二维码，识别相册中的二维码-->
         <activity android:name="com.bestvike.androiddevelopmentartexploration.zxing.activity.SweepTheVardActivity"/>
+         <!--生成二维码页面-->
+        <activity android:name="com.bestvike.androiddevelopmentartexploration.zxing.activity.GenerateTheQrCodeActivity"/>
 
         <activity android:name="com.bestvike.androiddevelopmentartexploration.xg.MyXGActivity"/>
 

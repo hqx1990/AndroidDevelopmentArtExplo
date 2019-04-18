@@ -133,6 +133,6 @@ dependencies {
     //LogcatView 一款可以在手机中打开logcat控制台  https://github.com/SHPDZY/LogCatDialog#logcatview
     implementation 'com.github.SHPDZY:LogCatDialog:1.0.2'
     //二维码识别
-    implementation 'com.google.zxing:core:3.3.2'
+    implementation 'com.google.zxing:core:3.3.3'
 
 }
