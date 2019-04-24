@@ -11,8 +11,8 @@ import com.example.beaselibrary.network.okHttp.callback.DaoStringCallBack;
 import com.example.beaselibrary.network.okHttp.utils.JsonUtils;
 import com.example.beaselibrary.network.okHttp.utils.OkHttpUtils;
 import com.example.beaselibrary.network.token.TokenHelper;
-import com.example.beaselibrary.sp.SpHelper;
 import com.example.beaselibrary.sp.SpKey;
+import com.example.beaselibrary.sp.SpUtil;
 import com.example.beaselibrary.util.CheckUtil;
 import com.example.beaselibrary.util.Logger;
 
@@ -40,7 +40,7 @@ public class HttpDAO {
 
     public HttpDAO(NetResultCallBack netResultCallBack) {
         this.tag = netResultCallBack;
-        token = SpHelper.getInstance().readMsgFromSp(SpKey.LOGIN, SpKey.LOGIN_ACCESSTOKEN);
+        token = SpUtil.getBankCardInstance().getString(SpKey.LOGIN_ACCESSTOKEN);
         callback = new DaoStringCallBack(netResultCallBack);
         if (!CheckUtil.getInstance().isEmpty(token)) {
             Logger.e("-----", "token:" + token);

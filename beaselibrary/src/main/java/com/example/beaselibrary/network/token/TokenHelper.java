@@ -10,8 +10,8 @@ import com.example.beaselibrary.network.okHttp.NetResultCallBack;
 import com.example.beaselibrary.network.okHttp.callback.DaoStringCallBack;
 import com.example.beaselibrary.permissions.AccessPermissions;
 import com.example.beaselibrary.permissions.AccessPermissionsInterface;
-import com.example.beaselibrary.sp.SpHelper;
 import com.example.beaselibrary.sp.SpKey;
+import com.example.beaselibrary.sp.SpUtil;
 import com.example.beaselibrary.util.CheckUtil;
 
 import java.util.HashMap;
@@ -91,7 +91,7 @@ public class TokenHelper implements NetResultCallBack {
     @Override
     public void onSuccess(Object response, String flag) {
         Token bean = JsonUtils.json2Class((String) response, Token.class);
-        SpHelper.getInstance().saveMsgToSp(SpKey.LOGIN,SpKey.LOGIN_ACCESSTOKEN,bean.access_token);
+        SpUtil.getBankCardInstance().put(SpKey.LOGIN_ACCESSTOKEN,bean.access_token);
         flag = flag.substring(flag.indexOf("#") + 1);
         RequestParamsForToken requestParams = requestMap.get(flag);
         if(requestParams == null) return;

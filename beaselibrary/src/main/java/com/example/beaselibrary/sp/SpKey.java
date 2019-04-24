@@ -14,51 +14,7 @@ public interface SpKey {
     String LOGIN = "LOGIN";
     String LOGIN_CLIENTSERCERT = "clientSecret";//请求token用
     String LOGIN_ACCESSTOKEN = "accessToken";//获取到的token值
-
-    /**
-     * 新手引导相关
-     */
-    String NEW_GUID = "news_guid";
-    String LOGIN_IF_ONCE = "login_if_once1";
-
-    /**
-     * 实名相关信息，启动页会清除该sp文件
-     */
-    String USER = "USER";
-
-    /**
-     * 信息状态标识（是否登录，实名，有无支付密码等）等信息，启动页会清除该sp文件
-     */
-    String STATE = "STATE";
-
-    /**
-     * 流程标识相关信息，流程结束后一定clean该文件下的所有标识，启动页也会清除该sp文件，MainActivity的onStart中也会清除
-     * 包括流程中可能需要保存的信息，比如流水号等
-     */
-    String FLAG = "FLAG";
-
-
-    /**
-     * 系统配置项（默认参数），启动页会清除该sp文件
-     */
-    String CONFIGURE = "CONFIGURE";
-    /**
-     * 其他未分类信息
-     */
-    String OTHER = "OTHER";
-
-    /**
-     * 是否是第一次登陆
-     */
-    String ISFIRST = "isfirst";//首次
-    String ISFIRST_VERSION = "version";//根据版本号判断需不需要展示引导页
-    String ISFIRST_ED_HINT = "edHint";//是否隐藏首页额度展示（Y：隐藏）
-    String ISFIRST_FUND_HINT = "fundHint";//是否隐藏公积金/社保账户余额（Y：隐藏）
-
-    /**
-     * 锁屏计时相关
-     */
-    String LOCK = "LOCK";
-    String LOCK_CURRENT_TIME = "currentTime";//计时锁屏，上次用户点击操作的时间
-    String LOCK_ENVIRONMENT = "environment";//保存环境信息（测试/封测），若检测到环境改变则清空所有信息
+    String LOGIN_THE_TEST_DATA1 = "LOGIN_THE_TEST_DATA1";//测试数据1
+    String LOGIN_THE_TEST_DATA2 = "LOGIN_THE_TEST_DATA2";//测试数据1
+    String LOGIN_THE_TEST_DATA3 = "LOGIN_THE_TEST_DATA3";//测试数据1
 }

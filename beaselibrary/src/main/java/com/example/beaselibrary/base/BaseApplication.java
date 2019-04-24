@@ -12,7 +12,7 @@ import com.example.beaselibrary.util.ActManger;
 
 public class BaseApplication extends Application {
 
-    public static Context CONTEXT;
+    public static BaseApplication CONTEXT;
     private static ActManger actManger = null; // activity管理类
     public static String baseUrl ;
     public FragmentActivity currentActivity;
@@ -21,7 +21,7 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        CONTEXT = this;
+        CONTEXT = (BaseApplication) getApplicationContext();
         actManger = getActManger(); // 获得实例
 
     }
@@ -30,7 +30,7 @@ public class BaseApplication extends Application {
         if(null == CONTEXT){
             CONTEXT = new BaseApplication();
         }
-        return (BaseApplication) CONTEXT;
+        return  CONTEXT;
     }
 
     public static ActManger getActManger() {

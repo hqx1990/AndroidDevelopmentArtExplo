@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    >
+
+    <Button
+        android:id="@+id/buSaveSingle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="保存单个数据"
+        android:layout_marginTop="@dimen/dp_10"
+        />
+    <Button
+        android:id="@+id/buToViewSingle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="查看保存结果"
+        android:layout_marginTop="@dimen/dp_10"
+        />
+    <Button
+        android:id="@+id/buDeleteSingle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="删除保存的单个数据"
+        android:layout_marginTop="@dimen/dp_10"
+        />
+
+    <Button
+        android:id="@+id/buSaveMultiple"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="保存多条个数据"
+        android:layout_marginTop="@dimen/dp_10"
+        />
+    <Button
+        android:id="@+id/buToViewMultiple"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="查看保存结果"
+        android:layout_marginTop="@dimen/dp_10"
+        />
+    <Button
+        android:id="@+id/buDeleteMultiple"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="删除保存的多条数据"
+        android:layout_marginTop="@dimen/dp_10"
+        />
+
+</LinearLayout>

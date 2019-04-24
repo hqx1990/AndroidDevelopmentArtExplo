@@ -92,6 +92,8 @@
 
         <!--高德定位-->
         <activity android:name="com.bestvike.androiddevelopmentartexploration.scott.ScottActivity"/>
+        <!--SP简单使用-->
+        <activity android:name="com.bestvike.androiddevelopmentartexploration.spHelp.SPHelpActivity"/>
 
         <!-- 【必须】 信鸽receiver广播接收 -->
         <receiver android:name="com.tencent.android.tpush.XGPushReceiver"

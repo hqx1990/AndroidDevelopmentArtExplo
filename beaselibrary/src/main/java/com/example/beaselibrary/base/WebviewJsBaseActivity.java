@@ -191,7 +191,6 @@ public class WebviewJsBaseActivity extends BaseActivity implements IWebViewCallb
         {
             appVersion = "";
         }
-//        String token = SpHelper.getInstance().readMsgFromSp(SpKey.LOGIN, SpKey.LOGIN_ACCESSTOKEN);
 //        putParam(requestParam, "access_token", token);
 //        putParam(requestParam, "channel", AppApplication.CHANNEL);
 //        putParam(requestParam, "channel_no", AppApplication.channel_no);

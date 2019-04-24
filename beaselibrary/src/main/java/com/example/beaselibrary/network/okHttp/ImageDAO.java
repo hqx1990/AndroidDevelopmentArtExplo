@@ -8,8 +8,8 @@ import com.example.beaselibrary.base.BaseApplication;
 import com.example.beaselibrary.base.BaseUrl;
 import com.example.beaselibrary.network.okHttp.callback.DaoStringCallBack;
 import com.example.beaselibrary.network.okHttp.utils.OkHttpUtils;
-import com.example.beaselibrary.sp.SpHelper;
 import com.example.beaselibrary.sp.SpKey;
+import com.example.beaselibrary.sp.SpUtil;
 import com.example.beaselibrary.util.CheckUtil;
 import com.example.beaselibrary.util.MD5Utile;
 
@@ -49,7 +49,7 @@ public class ImageDAO implements NetResultCallBack {
     public ImageDAO(NetResultCallBack netResultCallBack) {
         this.tag = netResultCallBack;
         this.netResultCallBack = netResultCallBack;
-        token = SpHelper.getInstance().readMsgFromSp(SpKey.LOGIN, SpKey.LOGIN_ACCESSTOKEN);
+        token = SpUtil.getBankCardInstance().getString(SpKey.LOGIN_ACCESSTOKEN);
         callback = new DaoStringCallBack(this);
 
         try {

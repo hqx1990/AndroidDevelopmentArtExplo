@@ -63,12 +63,6 @@ public class JsWebViewActivity extends WebviewJsBaseActivity implements IWebView
 //                    url = "http://testpm.haiercash.com:9002/hf/#!/activity/20171228/";
 
         Map<String, String> params = new HashMap<String, String>();
-//        if (!CheckUtil.getInstance().isEmpty(SpHelper.getInstance().readMsgFromSp(SpKey.LOGIN, SpKey.LOGIN_USERID))) {
-//            params.put("userId", SpHelper.getInstance().readMsgFromSp(SpKey.LOGIN, SpKey.LOGIN_USERID));
-//        }
-//        if (!CheckUtil.getInstance().isEmpty(SpHelper.getInstance().readMsgFromSp(SpKey.USER, SpKey.USER_CUSTNO))) {
-//            params.put("custNo", SpHelper.getInstance().readMsgFromSp(SpKey.USER, SpKey.USER_CUSTNO));
-//        }
         if (0 == params.size()) {
             CallUrl(url);
         } else {

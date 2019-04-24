@@ -25,6 +25,7 @@ import com.bestvike.androiddevelopmentartexploration.paging.pagingLibrary.Paging
 import com.bestvike.androiddevelopmentartexploration.paging.asyncListUtil.AsyncListActivity;
 import com.bestvike.androiddevelopmentartexploration.runtimePermission.RuntimePermissionActivity;
 import com.bestvike.androiddevelopmentartexploration.scott.ScottActivity;
+import com.bestvike.androiddevelopmentartexploration.spHelp.SPHelpActivity;
 import com.bestvike.androiddevelopmentartexploration.textViewOnClick.AgreementActivity;
 import com.bestvike.androiddevelopmentartexploration.useMVPFramework.UseMVPFrameworkActivity;
 import com.bestvike.androiddevelopmentartexploration.viewPagerFragment.ViewPagerActivity;
@@ -86,6 +87,7 @@ public class MainActivity extends BaseActivity {
         list.add("TextView点击");
         list.add("ViewPager的简单实用");
         list.add("高德");
+        list.add("sp使用");
         for(int i = 0;i<30;i++){
             list.add(String.valueOf(i));
         }
@@ -278,6 +280,10 @@ public class MainActivity extends BaseActivity {
                                         }
                                     }
                                 }, Manifest.permission.ACCESS_COARSE_LOCATION);
+                        break;
+                    case 23:
+                        //sp使用
+                        toActivity(SPHelpActivity.class);
                         break;
                 }
             }
