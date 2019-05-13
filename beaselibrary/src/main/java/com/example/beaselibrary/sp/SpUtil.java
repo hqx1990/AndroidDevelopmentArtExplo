@@ -16,7 +16,7 @@ public class SpUtil {
     private static IPreference iBankCardPreference;
     public static IPreference getBankCardInstance(){
         if (null == iBankCardPreference) {
-            iBankCardPreference = IPreference.prefHolder.getPreference(BaseApplication.getInstance(), SpKey.LOGIN);
+            iBankCardPreference = IPreference.prefHolder.newPreference(BaseApplication.getInstance(), SpKey.LOGIN);
         }
         return iBankCardPreference;
     }

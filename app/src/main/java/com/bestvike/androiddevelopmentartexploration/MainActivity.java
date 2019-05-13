@@ -27,6 +27,7 @@ import com.bestvike.androiddevelopmentartexploration.runtimePermission.RuntimePe
 import com.bestvike.androiddevelopmentartexploration.scott.ScottActivity;
 import com.bestvike.androiddevelopmentartexploration.spHelp.SPHelpActivity;
 import com.bestvike.androiddevelopmentartexploration.textViewOnClick.AgreementActivity;
+import com.bestvike.androiddevelopmentartexploration.theKeyboard.TheKeyboardActivity;
 import com.bestvike.androiddevelopmentartexploration.useMVPFramework.UseMVPFrameworkActivity;
 import com.bestvike.androiddevelopmentartexploration.viewPagerFragment.ViewPagerActivity;
 import com.bestvike.androiddevelopmentartexploration.xg.MyXGActivity;
@@ -88,6 +89,7 @@ public class MainActivity extends BaseActivity {
         list.add("ViewPager的简单实用");
         list.add("高德");
         list.add("sp使用");
+        list.add("键盘弹出关闭监听，输入监听");
         for(int i = 0;i<30;i++){
             list.add(String.valueOf(i));
         }
@@ -284,6 +286,10 @@ public class MainActivity extends BaseActivity {
                     case 23:
                         //sp使用
                         toActivity(SPHelpActivity.class);
+                        break;
+                    case 24:
+                        //键盘弹出关闭监听，输入监听
+                        toActivity(TheKeyboardActivity.class);
                         break;
                 }
             }
