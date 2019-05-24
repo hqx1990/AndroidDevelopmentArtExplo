@@ -5,6 +5,7 @@ ext {
             minSdkVersion: 15,
             buildToolsVersion: "27.0.3",
             targetSdkVersion: 26
+
     ]
 
     dependencies = [
@@ -12,7 +13,8 @@ ext {
             design      : 'com.android.support:design:26.1.0',
             recycler    : 'com.android.support:recyclerview-v7:26.1.0',
             junit       : 'junit:junit:4.12',
-            runner      :'com.android.support.test:runner:1.0.2'
+            runner      :'com.android.support.test:runner:1.0.2',
+            espresso    :'com.android.support.test.espresso:espresso-core:3.0.2'
     ]
 
     version_release=[
