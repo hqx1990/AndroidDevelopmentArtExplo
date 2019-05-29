@@ -158,19 +158,19 @@
         <!-- 【必须】 【注意】authorities修改为 包名.AUTH_XGPUSH, 如demo的包名为：com.qq.xgdemo-->
         <provider
             android:name="com.tencent.android.tpush.XGPushProvider"
-            android:authorities="当前应用的包名.AUTH_XGPUSH"
+            android:authorities="${APP_PACKAGE_ID}.AUTH_XGPUSH"
             android:exported="true"/>
 
         <!-- 【必须】 【注意】authorities修改为 包名.TPUSH_PROVIDER, 如demo的包名为：com.qq.xgdemo-->
         <provider
             android:name="com.tencent.android.tpush.SettingsContentProvider"
-            android:authorities="当前应用的包名.TPUSH_PROVIDER"
+            android:authorities="${APP_PACKAGE_ID}.TPUSH_PROVIDER"
             android:exported="false" />
 
         <!-- 【必须】 【注意】authorities修改为 包名.TENCENT.MID.V3, 如demo的包名为：com.qq.xgdemo-->
         <provider
             android:name="com.tencent.mid.api.MidProvider"
-            android:authorities="当前应用的包名.TENCENT.MID.V3"
+            android:authorities="${APP_PACKAGE_ID}.TENCENT.MID.V3"
             android:exported="true" >
         </provider>
 
