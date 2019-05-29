@@ -5,7 +5,8 @@ apply plugin: 'kotlin-android'
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     defaultConfig {
-        applicationId "com.bestvike.androiddevelopmentartexploration"
+        //设置默认包名
+        applicationId rootProject.ext.package_name.app_kaifa
         minSdkVersion  rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode rootProject.ext.version_release.versionCode
@@ -62,6 +63,10 @@ android {
             resValue("string", "growingio_url_scheme", "growing.2bc2dc8f893b849c")
             resValue("string", "xg_id", "2100207419")
             resValue("string", "xg_key", "A63DKG47KT6W")
+            applicationId rootProject.ext.package_name.app_shengchan
+            manifestPlaceholders=[
+                    APP_PACKAGE_ID: rootProject.ext.package_name.app_shengchan
+            ]
         }
         kaifa{//开发
             buildConfigField "String", "TheEnvironment", "\"开发\""
@@ -71,6 +76,10 @@ android {
             resValue("string", "growingio_url_scheme", "growing.90c6cb48304a294e")
             resValue("string", "xg_id", "2100265008")
             resValue("string", "xg_key", "A6XV6VI9I93X")
+            applicationId rootProject.ext.package_name.app_kaifa
+            manifestPlaceholders=[
+                    APP_PACKAGE_ID:rootProject.ext.package_name.app_kaifa
+            ]
         }
         fengce{//封测
             buildConfigField "String", "TheEnvironment", "\"封测\""
@@ -80,13 +89,17 @@ android {
             resValue("string", "growingio_url_scheme", "growing.90c6cb48304a294e")
             resValue("string", "xg_id", "2100265008")
             resValue("string", "xg_key", "A6XV6VI9I93X")
+            applicationId rootProject.ext.package_name.app_fengce
+            manifestPlaceholders=[
+                    APP_PACKAGE_ID:rootProject.ext.package_name.app_fengce
+            ]
         }
     }
 
     buildTypes {
         /*生产环境*/
         release {
-            //开启代码混淆
+            //开启代码混淆  false 关闭混淆
             minifyEnabled false
 //            // 移除无用的resource文件
 //            shrinkResources true
@@ -97,15 +110,6 @@ android {
             minifyEnabled false
             signingConfig signingConfigs.debug
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-
-            buildConfigField "String", "TheEnvironment", "\"开发\""
-            buildConfigField "String", "API_HOST", "\"http://10.164.194.123:9000/\""//测试
-//            buildConfigField "String", "API_HOST", "\"https://testpm.haiercash.com/\""//封测
-            resValue "string", "app_name", "测试安卓开发艺术探索"
-            resValue("string", "growingio_project_id", "ad1b4c7894dcdf85")
-            resValue("string", "growingio_url_scheme", "growing.90c6cb48304a294e")
-            resValue("string", "xg_id", "2100265008")
-            resValue("string", "xg_key", "A6XV6VI9I93X")
         }
     }
 

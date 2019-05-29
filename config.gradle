@@ -21,5 +21,11 @@ ext {
             versionCode:1,
             versionName:"1.0"
     ]
+    package_name=[
+            app_ceshi :"com.app.ceshi",
+            app_kaifa:"com.app.kaifa",
+            app_fengce:"com.app.fc",
+            app_shengchan:"com.app"
 
+    ]
 }
