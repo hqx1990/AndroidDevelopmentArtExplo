@@ -258,7 +258,7 @@ public class MainActivity extends BaseActivity {
 
                     case 19:
                         //打包自动处理环境
-                        showToast(BuildConfig.TheEnvironment);
+                        showDialog(BuildConfig.TheEnvironment+"\n包名："+BuildConfig.APPLICATION_ID);
                         break;
                     case 20:
                         //TextView点击

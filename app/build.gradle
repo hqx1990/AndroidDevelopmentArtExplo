@@ -41,13 +41,15 @@ android {
 
     signingConfigs {
         debug {
+            //设置签名文件
             keyAlias 'haiercash'
             keyPassword '123456'
             storeFile file('Haiercash-release.keystore')
             storePassword '123456'
         }
 
-        lintOptions {//Gradle编译禁用Lint报错
+        lintOptions {
+            //Gradle编译禁用Lint报错
             checkReleaseBuilds false
             abortOnError false
             disable 'MissingTranslation'
