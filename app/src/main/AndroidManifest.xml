@@ -97,6 +97,8 @@
         <!--键盘弹出消失输入监听-->
         <activity android:name="com.bestvike.androiddevelopmentartexploration.theKeyboard.TheKeyboardActivity"/>
 
+        <!--多层嵌套列表-->
+        <activity android:name="com.bestvike.androiddevelopmentartexploration.nestedList.NestedListActivity"/>
         <!-- 【必须】 信鸽receiver广播接收 -->
         <receiver android:name="com.tencent.android.tpush.XGPushReceiver"
             android:process=":xg_service_v3" >

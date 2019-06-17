@@ -21,6 +21,7 @@ import com.bestvike.androiddevelopmentartexploration.jsWebView.JsWebViewActivity
 import com.bestvike.androiddevelopmentartexploration.listLeftDelete.leftDelete.LeftDeletaActivity;
 import com.bestvike.androiddevelopmentartexploration.listLeftDelete.leftDelete2.LeftDeletaActivity2;
 import com.bestvike.androiddevelopmentartexploration.liveData.LiveDataActivity;
+import com.bestvike.androiddevelopmentartexploration.nestedList.NestedListActivity;
 import com.bestvike.androiddevelopmentartexploration.paging.pagingLibrary.PagingLibraryActivity;
 import com.bestvike.androiddevelopmentartexploration.paging.asyncListUtil.AsyncListActivity;
 import com.bestvike.androiddevelopmentartexploration.runtimePermission.RuntimePermissionActivity;
@@ -37,6 +38,7 @@ import com.example.beaselibrary.base.BaseRecyclerAdapter;
 import com.example.beaselibrary.interfaces.DialogListener;
 import com.example.beaselibrary.permissions.AccessPermissions;
 import com.example.beaselibrary.permissions.AccessPermissionsInterface;
+import com.example.beaselibrary.util.Logger;
 import com.zy.logcat.LogCatControl;
 
 import java.util.ArrayList;
@@ -90,6 +92,7 @@ public class MainActivity extends BaseActivity {
         list.add("高德");
         list.add("sp使用");
         list.add("键盘弹出关闭监听，输入监听");
+        list.add("RecyclerView 嵌套 RecyclerView");
         for(int i = 0;i<30;i++){
             list.add(String.valueOf(i));
         }
@@ -109,7 +112,8 @@ public class MainActivity extends BaseActivity {
 //                showToast(str);
                 switch (position){
                     case 0:
-                        showDialog(str);
+//                        showDialog(str);
+                        finish();
                         break;
                     case 1:
                         showDialog(str, new DialogListener() {
@@ -290,6 +294,10 @@ public class MainActivity extends BaseActivity {
                     case 24:
                         //键盘弹出关闭监听，输入监听
                         toActivity(TheKeyboardActivity.class);
+                        break;
+                    case 25:
+                        //RecyclerView 嵌套 RecyclerView
+                        toActivity(NestedListActivity.class);
                         break;
                 }
             }
